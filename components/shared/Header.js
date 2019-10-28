@@ -10,6 +10,8 @@ import {
 } from 'reactstrap';
 import Link from 'next/link';
 
+import auth0 from '../../services/auth0';
+
 const BsNavLink = props => {
   const { route, title } = props;
 
@@ -20,10 +22,30 @@ const BsNavLink = props => {
   );
 };
 
-const Example = props => {
+const Login = () => {
+  return (
+    <span onClick={auth0.login} className="nav-link port-navbar-link clickable">
+      Login
+    </span>
+  );
+};
+const Logout = () => {
+  return (
+    <span
+      onClick={auth0.logout}
+      className="nav-link port-navbar-link clickable"
+    >
+      Logout
+    </span>
+  );
+};
+
+const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const { isAuthenticated, user } = props;
 
   return (
     <div>
@@ -54,6 +76,21 @@ const Example = props => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/cv" title="CV" />
             </NavItem>
+            {!isAuthenticated && (
+              <NavItem className="port-navbar-item">
+                <Login />
+              </NavItem>
+            )}
+            {isAuthenticated && (
+              <NavItem className="port-navbar-item">
+                <Logout />
+              </NavItem>
+            )}
+            {isAuthenticated && (
+              <NavItem className="port-navbar-item">
+                <span className="nav-link port-navbar-link"> {user.name} </span>
+              </NavItem>
+            )}
           </Nav>
         </Collapse>
       </Navbar>
@@ -61,4 +98,4 @@ const Example = props => {
   );
 };
 
-export default Example;
+export default Header;

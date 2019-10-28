@@ -11,8 +11,10 @@ class Index extends Component {
   }
 
   render() {
+    const { isAuthenticated, user } = this.props.auth;
+
     return (
-      <BaseLayout className="cover">
+      <BaseLayout className="cover" {...this.props.auth}>
         <div className="main-section">
           <div className="background-image">
             <img src="/static/images/background-index.png" />
@@ -43,7 +45,10 @@ class Index extends Component {
               </Col>
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-text">
-                  <h1>Hi, I'm Matt. Welcome to my portfolio. I'm a...</h1>
+                  <h1>
+                    {isAuthenticated && <span>{`Hi, ${user.name}, `}</span>}
+                    I'm Matt. Welcome to my portfolio. I'm a...
+                  </h1>
                 </div>
                 <Typed
                   loop

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
+import BasePage from '../components/BasePage';
 
 class Cv extends Component {
   render() {
     return (
-      <BaseLayout>
-        <h1>I am CV</h1>
+      <BaseLayout {...this.props.auth}>
+        <BasePage>
+          <h1>I am CV</h1>
+        </BasePage>
       </BaseLayout>
     );
   }
