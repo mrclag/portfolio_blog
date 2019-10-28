@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 
-class PAbout extends Component {
+class About extends Component {
   render() {
     return (
       <BaseLayout>
@@ -11,4 +11,4 @@ class PAbout extends Component {
   }
 }
 
-export default Portfolios;
+export default About;
