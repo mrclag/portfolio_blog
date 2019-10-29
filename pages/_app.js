@@ -11,8 +11,6 @@ export default class MyApp extends App {
     const user = process.browser
       ? await auth0.clientAuth()
       : await auth0.serverAuth(ctx.req);
-    console.log(user);
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }

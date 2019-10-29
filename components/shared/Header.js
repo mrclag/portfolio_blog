@@ -45,7 +45,7 @@ const Header = props => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  const { isAuthenticated, user } = props;
+  const { isAuthenticated, user, className } = props;
 
   return (
     <div>
@@ -53,7 +53,7 @@ const Header = props => {
         color="transparent"
         dark
         expand="md"
-        className="port-navbar port-default absolute"
+        className={`port-navbar port-nav-base absolute ${className}`}
       >
         <NavbarBrand className="port-navbar-brand" href="/">
           Matt Clagett

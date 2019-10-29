@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import BaseLayout from '../layouts/BaseLayout';
 import BasePage from '../BasePage';
 
-export default function(Comp) {
+const namespace = 'http://localhost:3000/';
+
+export default function(Comp, role) {
   return class withAuth extends Component {
     static async getInitialProps(args) {
       const pageProps =
@@ -11,10 +13,19 @@ export default function(Comp) {
     }
 
     renderProtectedPage() {
-      const { isAuthenticated } = this.props.auth;
-      if (isAuthenticated) {
-        return <Comp {...this.props} />;
+      const { isAuthenticated, user } = this.props.auth;
+      const userRole = user && user[`${namespace}role`];
+      let isAuthorized = false;
+
+      if (role) {
+        if (userRole && userRole === role) {
+          isAuthorized = true;
+        }
       } else {
+        isAuthorized = true;
+      }
+
+      if (!isAuthenticated) {
         return (
           <BaseLayout {...this.props.auth}>
             <BasePage>
@@ -22,6 +33,19 @@ export default function(Comp) {
             </BasePage>
           </BaseLayout>
         );
+      } else if (!isAuthorized) {
+        return (
+          <BaseLayout {...this.props.auth}>
+            <BasePage>
+              <h1>
+                You are not authorized. You don't have permission to visit this
+                page
+              </h1>
+            </BasePage>
+          </BaseLayout>
+        );
+      } else {
+        return <Comp {...this.props} />;
       }
     }
 
