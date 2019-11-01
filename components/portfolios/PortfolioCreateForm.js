@@ -12,6 +12,7 @@ const validateInputs = values => {
       errors[key] = `${key} is required!`;
     }
   });
+
   // if (!values.email) {
   //   errors.email = 'Required';
   // } else if (
@@ -22,20 +23,13 @@ const validateInputs = values => {
   return errors;
 };
 
-const INITIAL_VALUES = {
-  title: '',
-  company: '',
-  location: '',
-  position: '',
-  description: ''
-};
-
-const PortFolioCreateForm = props => (
+const PortFolioCreateForm = ({ initialValues, onSubmit, error }) => (
   <div>
+    {console.log(error)}
     <Formik
-      initialValues={INITIAL_VALUES}
+      initialValues={initialValues}
       validate={validateInputs}
-      onSubmit={props.onSubmit}
+      onSubmit={onSubmit}
     >
       {({ isSubmitting }) => (
         <Form>
@@ -64,7 +58,7 @@ const PortFolioCreateForm = props => (
             label="Description"
             component={PortInput}
           />
-
+          {error && <Alert color="danger">{error}</Alert>}
           <Button
             color="success"
             size="lg"

@@ -6,27 +6,30 @@ import withAuth from '../components/hoc/withAuth';
 import { Row, Col } from 'reactstrap';
 import { Router } from '../routes';
 
-import { createPortfolio } from '../actions/index';
+import { updatePortfolio, getPortfolioById } from '../actions/index';
 
-const INITIAL_VALUES = {
-  title: '',
-  company: '',
-  location: '',
-  position: '',
-  description: ''
-};
+class PortfolioEdit extends Component {
+  static async getInitialProps({ query }) {
+    let portfolio = {};
 
-class PortfolioNew extends Component {
+    try {
+      portfolio = await getPortfolioById(query.id);
+    } catch (err) {
+      console.error(err);
+    }
+
+    return { portfolio };
+  }
+
   constructor(props) {
     super();
-    this.savePortfolio = this.savePortfolio.bind(this);
     this.state = {
       error: undefined
     };
   }
-  savePortfolio = (portfolioData, { setSubmitting }) => {
+  updatePortfolio = (portfolioData, { setSubmitting }) => {
     setSubmitting(true);
-    createPortfolio(portfolioData)
+    updatePortfolio(portfolioData)
       .then(portfolio => {
         setSubmitting(false);
         this.setState({ error: undefined });
@@ -41,18 +44,16 @@ class PortfolioNew extends Component {
 
   render() {
     const { error } = this.state;
+    const { portfolio } = this.props;
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage
-          className="portfolio-create-page"
-          title="Create New Portfolio"
-        >
+        <BasePage className="portfolio-create-page" title="Update Portfolio">
           <Row>
             <Col md="6">
               <PorfolioCreateForm
-                initialValues={INITIAL_VALUES}
+                initialValues={portfolio}
                 error={error}
-                onSubmit={this.savePortfolio}
+                onSubmit={this.updatePortfolio}
               />
             </Col>
           </Row>
@@ -62,4 +63,4 @@ class PortfolioNew extends Component {
   }
 }
 
-export default withAuth(PortfolioNew, 'siteOwner');
+export default withAuth(PortfolioEdit, 'siteOwner');

@@ -3,19 +3,16 @@ const router = express.Router();
 const portfolioCtrl = require('../controllers/portfolio');
 const authService = require('../services/auth');
 
-router.get(
-  '',
-  authService.checkJWT,
-  authService.checkRole('siteOwner'),
-  portfolioCtrl.getPortfolios
-);
-
 router.post(
   '',
   authService.checkJWT,
   authService.checkRole('siteOwner'),
   portfolioCtrl.savePortfolio
 );
+
+router.get('', portfolioCtrl.getPortfolios);
+
+router.get('/:id', portfolioCtrl.getPortfolioById);
 
 router.patch(
   '/:id',

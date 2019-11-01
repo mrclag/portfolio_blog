@@ -3,67 +3,93 @@ import BaseLayout from '../components/layouts/BaseLayout';
 import BasePage from '../components/BasePage';
 import axios from 'axios';
 import Link from 'next/link';
-import {
-  Col,
-  Row,
-  Card,
-  CardHeader,
-  CardBody,
-  CardText,
-  CardTitle
-} from 'reactstrap';
+import { getPortfolios, deletePortfolio } from '../actions/index';
+import { Router } from '../routes';
+import PortfolioCard from '../components/portfolios/PortfolioCard';
 
+import { Col, Row, Button } from 'reactstrap';
+
+// turn this into a functional component
 class Portfolios extends Component {
   static async getInitialProps() {
-    let posts = [];
+    let portfolios = [];
     // static means you can call without initializing new class
     try {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/posts'
-      );
-      posts = response.data;
+      portfolios = await getPortfolios();
     } catch (e) {
       console.log(e);
     }
 
-    return { posts: posts.splice(0, 10) };
+    return { portfolios };
   }
 
-  // <Link href="/p/[id]" as={`/p/${props.id}`}>
+  navigateToEdit(portfolioId, e) {
+    e.stopPropagation();
+    Router.pushRoute(`/portfolios/${portfolioId}/edit`);
+  }
 
-  renderPosts(posts) {
-    return posts.map((post, i) => {
+  displayDeleteWarning = (portfolioId, e) => {
+    e.stopPropagation();
+    const isConfirm = confirm(
+      'Are you sure you want to delete this portfolio?'
+    );
+    if (isConfirm) {
+      this.deletePortfolio(portfolioId);
+    }
+  };
+
+  deletePortfolio = portfolioId => {
+    deletePortfolio(portfolioId)
+      .then(() => {
+        Router.pushRoute('/portfolios');
+      })
+      .catch(err => console.error(err));
+  };
+
+  renderPortfolios(portfolios) {
+    const { isAuthenticated, isSiteOwner } = this.props.auth;
+
+    return portfolios.map((portfolio, i) => {
       return (
-        <Col md="4">
-          <React.Fragment key={i}>
-            <span>
-              <Card className="portfolio-card">
-                <CardHeader className="portfolio-card-header">
-                  Some Position {i}
-                </CardHeader>
-                <CardBody>
-                  <p className="portfolio-card-city"> Some Location {i} </p>
-                  <CardTitle className="portfolio-card-title">
-                    Some Company {i}
-                  </CardTitle>
-                  <CardText className="portfolio-card-text">
-                    Some Description {i}
-                  </CardText>
-                  <div className="readMore"> </div>
-                </CardBody>
-              </Card>
-            </span>
-          </React.Fragment>
+        <Col md="4" key={i}>
+          <PortfolioCard portfolio={portfolio}>
+            {isAuthenticated && isSiteOwner && (
+              <React.Fragment>
+                <Button
+                  onClick={e => this.navigateToEdit(portfolio._id, e)}
+                  color="warning"
+                >
+                  Edit
+                </Button>{' '}
+                <Button
+                  onClick={e => this.displayDeleteWarning(portfolio._id, e)}
+                  color="danger"
+                >
+                  Delete
+                </Button>
+              </React.Fragment>
+            )}
+          </PortfolioCard>
         </Col>
       );
     });
   }
   render() {
-    const { posts } = this.props;
+    const { portfolios } = this.props; // this can be turned into staet with hooks
+    const { isAuthenticated, isSiteOwner } = this.props.auth;
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage title="Portfolios" className="portfolio-page">
-          <Row>{this.renderPosts(posts)}</Row>
+          {isAuthenticated && isSiteOwner && (
+            <Button
+              onClick={() => Router.pushRoute('/portfolioNew')}
+              color="success"
+              className="create-port-btn"
+            >
+              Create Portfolio
+            </Button>
+          )}
+          <Row>{this.renderPortfolios(portfolios)}</Row>
         </BasePage>
       </BaseLayout>
     );
