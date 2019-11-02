@@ -47,7 +47,7 @@ exports.updatePortfolio = (req, res) => {
       return res.status(422).send(err);
     }
     foundPortfolio.set(portfolioData);
-    foundPortfolio.save((err, savedPortfolio) => {
+    foundPortfolio.save((err, foundPortfolio) => {
       if (err) {
         return res.status(422).send(err);
       }

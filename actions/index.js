@@ -61,3 +61,44 @@ export const deletePortfolio = portfolioId => {
     .delete(`/portfolios/${portfolioId}`, setAuthHeader())
     .then(res => res.data);
 };
+
+// BLOG ACTIONS
+
+export const getBlogs = async req => {
+  return await axiosInstance.get('/blogs').then(res => res.data);
+};
+
+export const getBlogBySlug = async slug => {
+  return await axiosInstance.get(`/blogs/s/${slug}`).then(res => res.data);
+};
+
+export const getUserBlogs = async req => {
+  return await axiosInstance
+    .get('/blogs/me', setAuthHeader(req))
+    .then(res => res.data);
+};
+
+export const createBlog = (blogData, lockId) => {
+  return axiosInstance
+    .post(`/blogs?lockId=${lockId}`, blogData, setAuthHeader())
+    .then(res => res.data)
+    .catch(err => rejectPromise(err));
+};
+
+export const getBlogById = blogId => {
+  return axiosInstance.get(`/blogs/${blogId}`).then(res => res.data);
+};
+
+export const updateBlog = (blogData, blogId) => {
+  return axiosInstance
+    .patch(`/blogs/${blogId}`, blogData, setAuthHeader())
+    .then(res => res.data)
+    .catch(err => rejectPromise(err));
+};
+
+export const deleteBlog = blogId => {
+  return axiosInstance
+    .delete(`/blogs/${blogId}`, setAuthHeader())
+    .then(res => res.data)
+    .catch(err => rejectPromise(err));
+};

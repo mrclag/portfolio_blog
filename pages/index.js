@@ -7,7 +7,13 @@ class Index extends Component {
   constructor(props) {
     super(props);
 
-    this.roles = ['Student', 'Ironman', 'Developer', 'Brother', 'Tech Lover'];
+    this.roles = [
+      'Student',
+      'Ironman',
+      'Developer',
+      'Tech Lover',
+      'Reconsidering this animation'
+    ];
   }
 
   render() {
@@ -17,7 +23,7 @@ class Index extends Component {
       <BaseLayout className="cover" {...this.props.auth} headerType="index">
         <div className="main-section">
           <div className="background-image">
-            <img src="/static/images/background-index.png" />
+            <img src="/static/images/background3.png" />
           </div>
 
           <Container>
@@ -27,14 +33,12 @@ class Index extends Component {
                   <div className={`flipper`}>
                     <div className="back">
                       <div className="hero-section-content">
-                        <h2> Full Stack Web Developer </h2>
-                        <div className="hero-section-content-intro">
-                          Have a look at my portfolio and job history.
-                        </div>
+                        <h2> </h2>
+                        <div className="hero-section-content-intro">""</div>
                       </div>
                       <img
                         className="image"
-                        src="/static/images/section-1.png"
+                        src="/static/images/icecream.png"
                       />
                       <div className="shadow-custom">
                         <div className="shadow-inner"> </div>
@@ -47,7 +51,7 @@ class Index extends Component {
                 <div className="hero-welcome-text">
                   <h1>
                     {isAuthenticated && <span>{`Hi, ${user.name}, `}</span>}
-                    I'm Matt. Welcome to my portfolio. I'm a...
+                    I'm Matt. Welcome to my site. I'm a...
                   </h1>
                 </div>
                 <Typed
@@ -62,7 +66,7 @@ class Index extends Component {
                   className="self-typed"
                 />
                 <div className="hero-welcome-bio">
-                  <h1>Let's take a look on my work.</h1>
+                  <h1>Be sure to check out my portfolio and CV.</h1>
                 </div>
               </Col>
             </Row>
