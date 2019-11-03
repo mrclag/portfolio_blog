@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ActiveLink from '../ActiveLink';
 import {
   Collapse,
   Navbar,
@@ -16,9 +17,9 @@ const BsNavLink = props => {
   const { route, title } = props;
 
   return (
-    <Link href={route}>
+    <ActiveLink activeClassName="active" route={route}>
       <a className="nav-link port-navbar-link">{title}</a>
-    </Link>
+    </ActiveLink>
   );
 };
 
@@ -42,10 +43,10 @@ const Logout = () => {
 
 const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { isAuthenticated, user, className } = props;
   const toggle = () => setIsOpen(!isOpen);
 
-  const { isAuthenticated, user, className } = props;
+  const menuOpenClass = isOpen ? 'menu-open' : 'menu-close';
 
   return (
     <div>
@@ -53,7 +54,7 @@ const Header = props => {
         color="transparent"
         dark
         expand="md"
-        className={`port-navbar port-nav-base absolute ${className}`}
+        className={`port-navbar port-nav-base absolute ${className} ${menuOpenClass}`}
       >
         <NavbarBrand className="port-navbar-brand" href="/">
           Matt Clagett
