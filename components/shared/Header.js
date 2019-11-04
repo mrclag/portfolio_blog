@@ -69,7 +69,7 @@ const Header = props => {
               <BsNavLink route="/about" title="About" />
             </NavItem>
             <NavItem className="port-navbar-item">
-              <BsNavLink route="/portfolios" title="Portfolio" />
+              <BsNavLink route="/portfolios" title="Projects" />
             </NavItem>
             <NavItem className="port-navbar-item">
               <BsNavLink route="/blogs" title="Blog" />
@@ -77,21 +77,9 @@ const Header = props => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/cv" title="CV" />
             </NavItem>
-            {!isAuthenticated && (
-              <NavItem className="port-navbar-item">
-                <Login />
-              </NavItem>
-            )}
-            {isAuthenticated && (
-              <NavItem className="port-navbar-item">
-                <Logout />
-              </NavItem>
-            )}
-            {isAuthenticated && (
-              <NavItem className="port-navbar-item">
-                <span className="nav-link port-navbar-link"> {user.name} </span>
-              </NavItem>
-            )}
+            <NavItem className="port-navbar-item">
+              {isAuthenticated ? <Logout /> : <Login />}
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

@@ -78,15 +78,15 @@ class Portfolios extends Component {
     const { portfolios } = this.props; // this can be turned into staet with hooks
     const { isAuthenticated, isSiteOwner } = this.props.auth;
     return (
-      <BaseLayout {...this.props.auth}>
-        <BasePage title="Portfolios" className="portfolio-page">
+      <BaseLayout {...this.props.auth} title="Matthew Clagett - Projects">
+        <BasePage title="Projects" className="portfolio-page">
           {isAuthenticated && isSiteOwner && (
             <Button
-              onClick={() => Router.pushRoute('/portfolioNew')}
+              onClick={() => Router.pushRoute('/portfolios/new')}
               color="success"
               className="create-port-btn"
             >
-              Create Portfolio
+              Add Project
             </Button>
           )}
           <Row>{this.renderPortfolios(portfolios)}</Row>

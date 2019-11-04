@@ -6,6 +6,7 @@ import {
   CardBody,
   CardText,
   CardTitle,
+  CardImg,
   Button
 } from 'reactstrap';
 
@@ -34,11 +35,17 @@ export default class PortfolioCard extends React.Component {
           isOpen={isOpen}
         />
         <Card className="portfolio-card">
-          <CardHeader className="portfolio-card-header">
+          {/* <CardHeader className="portfolio-card-header">
             {portfolio.position}
-          </CardHeader>
+          </CardHeader> */}
+          <CardImg
+            top
+            height="250px"
+            src={portfolio.position}
+            alt="Card image cap"
+          />
+
           <CardBody>
-            <p className="portfolio-card-city"> {portfolio.location}</p>
             <CardTitle className="portfolio-card-title">
               {portfolio.title}
             </CardTitle>
