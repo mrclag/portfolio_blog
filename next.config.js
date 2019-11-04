@@ -1,6 +1,6 @@
 const withSass = require('@zeit/next-sass');
 const withCSS = require('@zeit/next-css');
-const OptimizeCSSAssetsPlugin = require();
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = withCSS(
   withSass({
