@@ -26,11 +26,6 @@ const rejectPromise = resError => {
   return Promise.reject(error);
 };
 
-export const getSecretData = async req => {
-  const url = '/secret';
-  return await axiosInstance.get(url, setAuthHeader(req)).then(res => res.data);
-};
-
 export const getPortfolios = async () => {
   const url = '/portfolios';
   return await axiosInstance.get(url).then(res => res.data);

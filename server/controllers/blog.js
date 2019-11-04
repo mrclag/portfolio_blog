@@ -58,7 +58,6 @@ exports.createBlog = (req, res) => {
 
 exports.getUserBlogs = (req, res) => {
   const userId = req.user.sub;
-  console.log(userId);
   Blog.find({ userId }, function(err, userBlogs) {
     if (err) {
       return res.status(422).send(err);
@@ -69,7 +68,6 @@ exports.getUserBlogs = (req, res) => {
 
 exports.getBlogById = (req, res) => {
   const blogId = req.params.id;
-  console.log(blogId);
   Blog.findById(blogId, (err, foundBlog) => {
     if (err) {
       return res.status(422).send(err);
@@ -109,7 +107,6 @@ exports.updateBlog = (req, res) => {
 
 exports.deleteBlog = (req, res) => {
   const blogId = req.params.id;
-  console.log(blogId);
   Blog.deleteOne({ _id: blogId }, err => {
     if (err) {
       return res.status(422).send(err);

@@ -25,14 +25,6 @@ const robotsOptions = {
   }
 };
 
-const secretData = [
-  {
-    title: 'secretData 1',
-    description: 'take over the world'
-  },
-  { title: 'secretData 2', description: 'passwords' }
-];
-
 mongoose
   .connect(config.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('DB connected'))
@@ -53,19 +45,6 @@ app
       return res.status(200).sendFile('robots.txt', robotsOptions);
     });
 
-    server.get('/api/v1/secret', authService.checkJWT, (req, res) => {
-      return res.json(secretData);
-    });
-
-    server.get(
-      '/api/v1/onlysiteowner',
-      authService.checkJWT,
-      authService.checkRole('siteOwner'),
-      (req, res) => {
-        return res.json(secretData);
-      }
-    );
-
     server.get('*', (req, res) => {
       return handle(req, res);
     });
@@ -78,9 +57,11 @@ app
       }
     });
 
-    server.use(handle).listen(3000, err => {
+    const PORT = process.env.PORT || 3000;
+
+    server.use(handle).listen(PORT, err => {
       if (err) throw err;
-      console.log('Ready on port 3000');
+      console.log(`Ready on port ${PORT}`);
     });
   })
   .catch(ex => {

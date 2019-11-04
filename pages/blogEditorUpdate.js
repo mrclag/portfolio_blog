@@ -45,9 +45,7 @@ class BlogEditorUpdate extends Component {
     updateBlog(updatedBlog, blog._id)
       .then(updatedBlog => {
         toast.success('Blog Saved Successfully!');
-        console.log('this is running');
         this.setState({ isSaving: false });
-        console.log(moment().format('lll'));
       })
       .catch(err => {
         this.setState({ isSaving: false });
