@@ -34,12 +34,7 @@ const BaseLayout = props => {
           content="My name is Matt, and I am a self-taught software developer and recent UC Berkeley Haas graduate. Come check out my work, and reach out if you would like to work together."
         />
         <link rel="icon" type="image/ico" href="/static/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css"
-          integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF"
-          crossOrigin="anonymous"
-        />
+
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"

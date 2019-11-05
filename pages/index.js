@@ -56,7 +56,7 @@ class Index extends Component {
                 <div className="hero-welcome-text">
                   <h1>
                     {isAuthenticated && <span>{`Hi, ${user.name}, `}</span>}
-                    I'm Matt. Welcome to my site. I'm a...
+                    I'm Matt.
                   </h1>
                 </div>
                 <Typed

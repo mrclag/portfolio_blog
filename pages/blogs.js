@@ -73,32 +73,7 @@ class Blogs extends Component {
             </Col>
           </Row>
 
-          <footer>
-            <Container>
-              <Row>
-                <div className="col-lg-8 col-md-10 mx-auto">
-                  <ul className="list-inline text-center">
-                    <li className="list-inline-item">
-                      <a target="_blank" href="https://instagram.com/mrclagett">
-                        <span className="fa-stack fa-lg">
-                          <i className="fas fa-circle fa-stack-2x"></i>
-                          <i className="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    </li>
-                    <li className="list-inline-item">
-                      <a target="_blank" href="https://github.com/mrclag">
-                        <span className="fa-stack fa-lg">
-                          <i className="fas fa-circle fa-stack-2x"></i>
-                          <i className="fab fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </Row>
-            </Container>
-          </footer>
+          <footer></footer>
         </BasePage>
       </BaseLayout>
     );
