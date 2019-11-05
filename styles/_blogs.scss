@@ -23,6 +23,7 @@
         margin-bottom: 10px;
       }
       > .post-subtitle {
+        font-size: 20px;
         font-weight: 300;
         margin: 0 0 10px;
         color: #565656;
@@ -30,7 +31,7 @@
     }
 
     > .post-meta {
-      font-size: 18px;
+      font-size: 16px;
       font-style: italic;
       margin-top: 0;
       color: $gray-600;
@@ -88,10 +89,10 @@
   .page-heading,
   .post-heading,
   .site-heading {
-    padding: 200px 0 150px;
+    padding: 150px 0 75px;
     color: white;
     @media only screen and (min-width: 768px) {
-      padding: 200px 0;
+      padding: 100px 0;
     }
   }
   .page-heading,
@@ -108,6 +109,9 @@
       line-height: 1.1;
       display: block;
       margin: 10px 0 0;
+      button {
+        margin: 20px 20px;
+      }
     }
     @media only screen and (min-width: 768px) {
       h1 {
@@ -199,4 +203,7 @@
       margin-left: 10px;
     }
   }
+}
+.updatedAt {
+  font-size: 0.5em;
 }

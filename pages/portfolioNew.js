@@ -43,10 +43,7 @@ class PortfolioNew extends Component {
     const { error } = this.state;
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage
-          className="portfolio-create-page"
-          title="Create New Portfolio"
-        >
+        <BasePage className="portfolio-create-page" title="Add Project">
           <Row>
             <Col md="6">
               <PorfolioCreateForm

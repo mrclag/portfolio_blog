@@ -13,13 +13,6 @@ const validateInputs = values => {
     }
   });
 
-  // if (!values.email) {
-  //   errors.email = 'Required';
-  // } else if (
-  //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-  // ) {
-  //   errors.email = 'Invalid email address';
-  // }
   return errors;
 };
 
@@ -37,19 +30,19 @@ const PortFolioCreateForm = ({ initialValues, onSubmit, error }) => (
           <Field
             type="text"
             name="company"
-            label="Company"
+            label="Github Link"
             component={PortInput}
           />
           <Field
             type="text"
             name="location"
-            label="Location"
+            label="Tech used"
             component={PortInput}
           />
           <Field
             type="text"
             name="position"
-            label="Position"
+            label="Image URL"
             component={PortInput}
           />
           <Field
@@ -74,67 +67,3 @@ const PortFolioCreateForm = ({ initialValues, onSubmit, error }) => (
 );
 
 export default PortFolioCreateForm;
-
-// import React from 'react';
-
-// export default class PortfolioCreateForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { title: '', description: '', language: '' };
-//   }
-
-//   handleChange = event => {
-//     this.setState({ [event.target.name]: event.target.value });
-//   };
-
-//   handleSubmit = event => {
-//     alert(
-//       'A name was submitted: ' +
-//         this.state.title +
-//         ' ' +
-//         this.state.description +
-//         ' ' +
-//         this.state.language
-//     );
-//     event.preventDefault();
-//   };
-
-//   render() {
-//     return (
-//       <form onSubmit={this.handleSubmit}>
-//         <label>
-//           Name:
-//           <input
-//             name="title"
-//             type="text"
-//             value={this.state.name}
-//             onChange={this.handleChange}
-//           />
-//           <label>
-//             Description
-//             <textarea
-//               name="description"
-//               value={this.state.description}
-//               onChange={this.handleChange}
-//             />
-//           </label>
-//           <label>
-//             {' '}
-//             Pick your favorite Language
-//             <select
-//               name="language"
-//               value={this.state.language}
-//               onChange={this.handleChange}
-//             >
-//               <option value="python">Python</option>
-//               <option value="javascript">Javascript</option>
-//               <option value="r">R</option>
-//               <option value="c">C</option>
-//             </select>
-//           </label>
-//         </label>
-//         <input type="submit" value="Submit" />
-//       </form>
-//     );
-//   }
-// }

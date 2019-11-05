@@ -16,7 +16,7 @@ const BaseLayout = props => {
   return (
     <Fragment>
       <Head>
-        <title>{title}</title>
+        <title>{title || ''}</title>
         <meta
           name="description"
           content="My name is Matt, and I am a self-taught software developer and recent UC Berkeley Haas graduate. Come check out my work, and reach out if you would like to work together."

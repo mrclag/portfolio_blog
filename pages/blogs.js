@@ -28,16 +28,13 @@ class Blogs extends Component {
           </a>
         </Link>
         <p className="post-meta">
-          Posted by
-          <a href="#"> {blog.author} </a>
-          {moment(blog.createdAt).format('LLLL')}
+          Posted by {blog.author} on {moment(blog.createdAt).format('LL')}
         </p>
       </div>
     ));
 
   render() {
     const { blogs } = this.props;
-    console.log(blogs);
     return (
       <BaseLayout
         {...this.props.auth}

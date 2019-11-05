@@ -6,6 +6,7 @@ import PortButtonDropdown from '../components/ButtonDropdown';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { Link, Router } from '../routes';
 import { getUserBlogs, updateBlog, deleteBlog } from '../actions';
+import moment from 'moment';
 
 class UserBlogs extends Component {
   static async getInitialProps({ req }) {
@@ -84,6 +85,9 @@ class UserBlogs extends Component {
               <a>{blog.title}</a>
             </Link>
             <PortButtonDropdown items={this.dropdownOptions(blog)} />
+            <div className="updatedAt">
+              {moment(blog.updatedAt).format('lll')}
+            </div>
           </li>
         ))}
       </ul>
@@ -108,6 +112,9 @@ class UserBlogs extends Component {
                   <span className="subheading">
                     <Link route="/blogs/new">
                       <Button color="primary">Create new blog</Button>
+                    </Link>
+                    <Link route="/blogs">
+                      <Button color="primary">View Blogs</Button>
                     </Link>
                   </span>
                 </div>

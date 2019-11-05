@@ -9,9 +9,9 @@ class Index extends Component {
 
     this.roles = [
       'Student',
-      'Ironman',
       'Developer',
       'Tech Lover',
+      'Triathlete',
       'Reconsidering this animation'
     ];
   }
@@ -53,10 +53,10 @@ class Index extends Component {
                 </div>
               </Col>
               <Col md="6" className="hero-welcome-wrapper">
-                <div className="hero-welcome-text">
+                <div className="hero-welcome-bio">
                   <h1>
                     {isAuthenticated && <span>{`Hi, ${user.name}, `}</span>}
-                    I'm Matt.
+                    I'm Matt. I am...
                   </h1>
                 </div>
                 <Typed
