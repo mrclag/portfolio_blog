@@ -11,20 +11,18 @@ const PortfolioCardDetail = props => {
         <ModalHeader toggle={toggle}>{portfolioEdit.title}</ModalHeader>
         <ModalBody>
           <p>
-            <b>Description: </b>
-            {portfolio.description}
+            <b>{portfolio.title}</b>
           </p>
+          <p>{portfolio.description}</p>
+          <p>Tech used: {portfolio.techUsed}</p>
           <p>
-            <b>Company: </b>
-            {portfolio.company}
-          </p>
-          <p>
-            <b>Position: </b>
-            {portfolio.position}
-          </p>
-          <p>
-            <b>Location: </b>
-            {portfolio.location}
+            <Button
+              className="btn btn-primary"
+              href={portfolio.githubUrl}
+              target="_blank"
+            >
+              Github Link
+            </Button>
           </p>
         </ModalBody>
         <ModalFooter>

@@ -27,30 +27,33 @@ const PortFolioCreateForm = ({ initialValues, onSubmit, error }) => (
       {({ isSubmitting }) => (
         <Form>
           <Field type="text" name="title" label="Title" component={PortInput} />
-          <Field
-            type="text"
-            name="company"
-            label="Github Link"
-            component={PortInput}
-          />
-          <Field
-            type="text"
-            name="location"
-            label="Tech used"
-            component={PortInput}
-          />
-          <Field
-            type="text"
-            name="position"
-            label="Image URL"
-            component={PortInput}
-          />
+
+          <Field type="text" name="blurb" label="Blurb" component={PortInput} />
           <Field
             type="textarea"
             name="description"
             label="Description"
             component={PortInput}
           />
+          <Field
+            type="text"
+            name="githubLink"
+            label="Github Link"
+            component={PortInput}
+          />
+          <Field
+            type="text"
+            name="techUsed"
+            label="Tech used"
+            component={PortInput}
+          />
+          <Field
+            type="text"
+            name="imageUrl"
+            label="Image URL"
+            component={PortInput}
+          />
+
           {error && <Alert color="danger">{error}</Alert>}
           <Button
             color="success"
