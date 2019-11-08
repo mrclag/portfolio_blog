@@ -7,7 +7,8 @@ const portfolioSchema = new Schema({
   company: { type: String, required: true, maxlength: 256 },
   location: { type: String, required: true, maxlength: 128 },
   position: { type: String, required: true, maxlength: 256 },
-  description: { type: String, required: true, maxlength: 2048 }
+  description: { type: String, required: true, maxlength: 2048 },
+  blurb: { type: String, required: true, maxLength: 256 }
 });
 
 module.exports = mongoose.model('Portfolio', portfolioSchema);

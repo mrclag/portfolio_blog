@@ -15,7 +15,6 @@ const config = require('./config');
 
 const bodyParser = require('body-parser');
 
-const bookRoutes = require('./routes/book');
 const portfolioRoutes = require('./routes/portfolio');
 const blogRoutes = require('./routes/blog');
 
@@ -39,7 +38,6 @@ app
     server.use(compression());
     server.use(bodyParser.json());
 
-    server.use('/api/v1/books', bookRoutes);
     server.use('/api/v1/portfolios', portfolioRoutes);
     server.use('/api/v1/blogs', blogRoutes);
 

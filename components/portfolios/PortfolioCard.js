@@ -35,14 +35,11 @@ export default class PortfolioCard extends React.Component {
           isOpen={isOpen}
         />
         <Card className="portfolio-card">
-          {/* <CardHeader className="portfolio-card-header">
-            {portfolio.position}
-          </CardHeader> */}
           <CardImg
             top
             height="250px"
             src={portfolio.position}
-            alt="Card image cap"
+            alt="Card image"
           />
 
           <CardBody>
