@@ -41,10 +41,6 @@ app
     server.use('/api/v1/portfolios', portfolioRoutes);
     server.use('/api/v1/blogs', blogRoutes);
 
-    server.use((req, res, next) => {
-      res.header('Access-Control-Allow-Origin', '*');
-      next();
-    });
 
     server.get('/robots.txt', (req, res) => {
       return res.status(200).sendFile('robots.txt', robotsOptions);

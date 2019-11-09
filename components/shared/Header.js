@@ -76,9 +76,9 @@ const Header = props => {
                 <BsNavLink route="/blogs" title="Blog" />
               )}
             </NavItem>
-            <NavItem className="port-navbar-item">
+            {/* <NavItem className="port-navbar-item">
               <BsNavLink route="/cv" title="CV" />
-            </NavItem>
+            </NavItem> */}
             <NavItem className="port-navbar-item">
               {isAuthenticated ? <Logout /> : <Login />}
             </NavItem>

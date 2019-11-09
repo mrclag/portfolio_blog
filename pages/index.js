@@ -8,11 +8,7 @@ class Index extends Component {
     super(props);
 
     this.roles = [
-      'Student',
-      'Developer',
-      'Tech Lover',
-      'Triathlete',
-      'Reconsidering this animation'
+      "Hi, I'm Matt. I am a self-taught software developer, and just graduated in May from UC Berkeley with a degree in Business Administration. Be sure to check out my projects page!"
     ];
   }
 
@@ -54,24 +50,16 @@ class Index extends Component {
               </Col>
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-bio">
-                  <h1>
-                    {isAuthenticated && <span>{`Hi, ${user.name}, `}</span>}
-                    I'm Matt. I am...
-                  </h1>
-                </div>
-                <Typed
-                  loop
-                  typeSpeed={50}
-                  backSpeed={20}
-                  strings={this.roles}
-                  backDelay={1000}
-                  loopCount={0}
-                  showCursor
-                  cursorChar="|"
-                  className="self-typed"
-                />
-                <div className="hero-welcome-bio">
-                  <h1>Be sure to check out my portfolio and CV.</h1>
+                  <Typed
+                    typeSpeed={20}
+                    backSpeed={20}
+                    strings={this.roles}
+                    backDelay={1000}
+                    loopCount={0}
+                    showCursor
+                    cursorChar="|"
+                    className="self-typed"
+                  />
                 </div>
               </Col>
             </Row>
