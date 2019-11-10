@@ -4,6 +4,7 @@ const next = require('next');
 const mongoose = require('mongoose');
 const routes = require('../routes');
 const path = require('path');
+const cors = require('cors');
 
 // SERVICE
 
@@ -34,6 +35,7 @@ app
   .then(() => {
     const server = express();
 
+    server.use(cors());
     server.use(compression());
     server.use(bodyParser.json());
 
