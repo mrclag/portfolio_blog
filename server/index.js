@@ -6,7 +6,6 @@ const routes = require('../routes');
 const path = require('path');
 
 // SERVICE
-const authService = require('./services/auth');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -40,7 +39,6 @@ app
 
     server.use('/api/v1/portfolios', portfolioRoutes);
     server.use('/api/v1/blogs', blogRoutes);
-
 
     server.get('/robots.txt', (req, res) => {
       return res.status(200).sendFile('robots.txt', robotsOptions);
