@@ -23,9 +23,8 @@
     font-size: 33px;
   }
 
-  .subsubTitle {
+  .about-text {
     @include animation-delay(3.6s);
-    font-size: 18px;
   }
 
   @keyframes fadein {

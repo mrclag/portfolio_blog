@@ -10,13 +10,13 @@ const PortfolioCardDetail = props => {
   console.log('CARD DETAIL:', images);
   return (
     <div>
-      <Modal isOpen={isOpen} toggle={toggle}>
+      <Modal size="lg" isOpen={isOpen} toggle={toggle}>
         <ModalHeader toggle={toggle}>{portfolioEdit.title}</ModalHeader>
         <ModalBody>
           <CarouselModal images={images} />
-          <p>
+          <h1>
             <b>{portfolio.title}</b>
-          </p>
+          </h1>
           <p>{portfolio.description}</p>
           <p>Tech used: {portfolio.techUsed}</p>
           <p>

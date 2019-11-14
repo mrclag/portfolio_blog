@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import BasePage from '../components/BasePage';
-import axios from 'axios';
-import Link from 'next/link';
 import { getPortfolios, deletePortfolio } from '../actions/index';
 import { Router } from '../routes';
 import PortfolioCard from '../components/portfolios/PortfolioCard';
