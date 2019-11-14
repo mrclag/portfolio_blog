@@ -11,27 +11,32 @@ const PortfolioCardDetail = props => {
   return (
     <div>
       <Modal size="lg" isOpen={isOpen} toggle={toggle}>
-        <ModalHeader toggle={toggle}>{portfolioEdit.title}</ModalHeader>
         <ModalBody>
           <CarouselModal images={images} />
-          <h1>
+          <h1 style={{ margin: '10px 0px' }}>
             <b>{portfolio.title}</b>
           </h1>
-          <p>{portfolio.description}</p>
-          <p>Tech used: {portfolio.techUsed}</p>
+          <p>
+            <b>Description: </b>
+            {portfolio.description}
+          </p>
+          <p>
+            <b>Tech used: </b> {portfolio.techUsed}
+          </p>
           <p>
             <Button
-              className="btn btn-primary"
+              color="primary"
+              className="btn"
               href={portfolio.githubUrl}
               target="_blank"
             >
-              Github Link
+              View Github
             </Button>
           </p>
         </ModalBody>
         <ModalFooter>
-          <Button color="secondary" onClick={toggle}>
-            Cancel
+          <Button color="danger" style={{ margin: 'auto' }} onClick={toggle}>
+            Close
           </Button>
         </ModalFooter>
       </Modal>

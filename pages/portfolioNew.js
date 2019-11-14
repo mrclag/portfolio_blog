@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import BasePage from '../components/BasePage';
 import PorfolioCreateForm from '../components/portfolios/PortfolioCreateForm';
@@ -19,47 +19,39 @@ const INITIAL_VALUES = {
   imageUrl3: ''
 };
 
-class PortfolioNew extends Component {
-  constructor(props) {
-    super();
-    this.savePortfolio = this.savePortfolio.bind(this);
-    this.state = {
-      error: undefined
-    };
-  }
-  savePortfolio = (portfolioData, { setSubmitting }) => {
+const PortfolioNew = props => {
+  const [error, setError] = useState(undefined);
+
+  const savePortfolio = (portfolioData, { setSubmitting }) => {
     setSubmitting(true);
     createPortfolio(portfolioData)
-      .then(portfolio => {
+      .then(() => {
         setSubmitting(false);
-        this.setState({ error: undefined });
+        setError(undefined);
         Router.pushRoute('/portfolios');
       })
       .catch(err => {
-        const error = err.message || 'Server Error!';
+        const errorMessage = err.message || 'Server Error!';
         setSubmitting(false);
-        this.setState({ error });
+        setError(errorMessage);
       });
   };
 
-  render() {
-    const { error } = this.state;
-    return (
-      <BaseLayout {...this.props.auth}>
-        <BasePage className="portfolio-create-page" title="Add Project">
-          <Row>
-            <Col md="6">
-              <PorfolioCreateForm
-                initialValues={INITIAL_VALUES}
-                error={error}
-                onSubmit={this.savePortfolio}
-              />
-            </Col>
-          </Row>
-        </BasePage>
-      </BaseLayout>
-    );
-  }
-}
+  return (
+    <BaseLayout {...props.auth}>
+      <BasePage className="portfolio-create-page" title="Add Project">
+        <Row>
+          <Col md="6">
+            <PorfolioCreateForm
+              initialValues={INITIAL_VALUES}
+              error={error}
+              onSubmit={savePortfolio}
+            />
+          </Col>
+        </Row>
+      </BasePage>
+    </BaseLayout>
+  );
+};
 
 export default withAuth(PortfolioNew, 'siteOwner');

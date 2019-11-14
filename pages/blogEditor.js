@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import BasePage from '../components/BasePage';
 import withAuth from '../components/hoc/withAuth';
@@ -8,50 +8,36 @@ import { toast } from 'react-toastify';
 
 import { createBlog } from '../actions';
 
-class BlogEditor extends Component {
-  constructor(props) {
-    super(props);
+const BlogEditor = props => {
+  const [isSaving, setIsSaving] = useState(false);
 
-    this.state = {
-      isSaving: false,
-      lockId: Math.floor(1000 + Math.random() * 9000)
-    };
-  }
-
-  saveBlog = (story, heading) => {
-    const { lockId } = this.state;
+  const saveBlog = (story, heading) => {
     const blog = {};
     blog.title = heading.title;
     blog.subTitle = heading.subtitle;
     blog.story = story;
 
-    this.setState({
-      isSaving: true
-    });
+    setIsSaving(true);
 
     createBlog(blog)
       .then(createdBlog => {
         toast.success('Blog Saved Successfully!');
-        this.setState({ isSaving: false });
+        setIsSaving(false);
         Router.pushRoute(`/blogs/${createdBlog._id}/edit`);
       })
       .catch(err => {
-        this.setState({ isSaving: false });
+        setIsSaving(false);
         toast.error('Unexpected error. Copy progress and refresh browser');
         console.error(err.message || 'Server error!');
       });
   };
-
-  render() {
-    const { isSaving } = this.state;
-    return (
-      <BaseLayout {...this.props.auth}>
-        <BasePage containerClass="editor-wrapper" className="blog-editor-page">
-          <SlateEditor isLoading={isSaving} save={this.saveBlog} />
-        </BasePage>
-      </BaseLayout>
-    );
-  }
-}
+  return (
+    <BaseLayout {...props.auth}>
+      <BasePage containerClass="editor-wrapper" className="blog-editor-page">
+        <SlateEditor isLoading={isSaving} save={saveBlog} />
+      </BasePage>
+    </BaseLayout>
+  );
+};
 
 export default withAuth(BlogEditor, 'siteOwner');

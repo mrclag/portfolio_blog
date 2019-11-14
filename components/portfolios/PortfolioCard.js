@@ -1,56 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PortfolioCardDetail from './PortfolioCardDetail';
 import { Card, CardBody, CardText, CardTitle, CardImg } from 'reactstrap';
 
-export default class PortfolioCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false
-    };
-  }
+const PortfolioCard = props => {
+  const [open, setOpen] = useState(false);
+  const { portfolio, children } = props;
 
-  handleToggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  };
+  const toggle = () => setOpen(!open);
 
-  render() {
-    const { portfolio, children } = this.props;
-    const { isOpen } = this.state;
-    return (
-      <span onClick={this.handleToggle}>
-        <PortfolioCardDetail
-          toggle={this.handleToggle}
-          portfolio={portfolio}
-          isOpen={isOpen}
+  return (
+    <span onClick={toggle}>
+      <PortfolioCardDetail
+        toggle={toggle}
+        portfolio={portfolio}
+        isOpen={open}
+      />
+      <Card className="portfolio-card">
+        <CardImg
+          style={{
+            width: '100%',
+            height: '15vw',
+            objectFit: 'cover'
+          }}
+          src={portfolio.imageUrl}
+          alt="Card image"
         />
-        <Card className="portfolio-card">
-          <CardImg
-            style={{
-              width: '100%',
-              minHeight: '15vw',
-              objectFit: 'cover'
-            }}
-            src={portfolio.imageUrl}
-            alt="Card image"
-          />
 
-          <CardBody>
-            <CardTitle className="portfolio-card-title">
-              {portfolio.title}
-            </CardTitle>
-            <CardText
-              className="portfolio-card-text"
-              style={{ minHeight: '5vw' }}
-            >
-              {portfolio.blurb}
-            </CardText>
-            <div className="readMore">{children}</div>
-          </CardBody>
-        </Card>
-      </span>
-    );
-  }
-}
+        <CardBody>
+          <CardTitle className="portfolio-card-title">
+            {portfolio.title}
+          </CardTitle>
+          <CardText
+            className="portfolio-card-text"
+            style={{ minHeight: '5vw' }}
+          >
+            {portfolio.blurb}
+          </CardText>
+          <div className="readMore">{children}</div>
+        </CardBody>
+      </Card>
+    </span>
+  );
+};
+
+export default PortfolioCard;

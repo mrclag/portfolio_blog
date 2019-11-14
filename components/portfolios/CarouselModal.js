@@ -35,7 +35,14 @@ const CarouselModal = props => {
         onExited={() => setAnimating(false)}
         key={image}
       >
-        <img src={image} />
+        <img
+          style={{
+            width: '100%',
+            height: '25vw',
+            objectFit: 'cover'
+          }}
+          src={image}
+        />
       </CarouselItem>
     );
   });
