@@ -53,6 +53,18 @@ const PortFolioCreateForm = ({ initialValues, onSubmit, error }) => (
             label="Image URL"
             component={PortInput}
           />
+          <Field
+            type="text"
+            name="imageUrl2"
+            label="Image URL 2"
+            component={PortInput}
+          />
+          <Field
+            type="text"
+            name="imageUrl3"
+            label="Image URL 3"
+            component={PortInput}
+          />
 
           {error && <Alert color="danger">{error}</Alert>}
           <Button

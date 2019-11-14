@@ -36,8 +36,11 @@ export default class PortfolioCard extends React.Component {
         />
         <Card className="portfolio-card">
           <CardImg
-            top
-            height="250px"
+            style={{
+              width: '100%',
+              minHeight: '15vw',
+              objectFit: 'cover'
+            }}
             src={portfolio.imageUrl}
             alt="Card image"
           />
@@ -46,7 +49,10 @@ export default class PortfolioCard extends React.Component {
             <CardTitle className="portfolio-card-title">
               {portfolio.title}
             </CardTitle>
-            <CardText className="portfolio-card-text">
+            <CardText
+              className="portfolio-card-text"
+              style={{ minHeight: '5vw' }}
+            >
               {portfolio.blurb}
             </CardText>
             <div className="readMore">{children}</div>

@@ -10,10 +10,13 @@ import { createPortfolio } from '../actions/index';
 
 const INITIAL_VALUES = {
   title: '',
-  company: '',
-  location: '',
-  position: '',
-  description: ''
+  blurb: '',
+  githubLink: '',
+  techUsed: '',
+  description: '',
+  imageUrl: '',
+  imageUrl2: '',
+  imageUrl3: ''
 };
 
 class PortfolioNew extends Component {

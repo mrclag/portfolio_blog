@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import portfolioEdit from '../../pages/portfolioEdit';
+import CarouselModal from './CarouselModal';
 
 const PortfolioCardDetail = props => {
-  const { buttonLabel, isOpen, toggle, portfolio } = props;
+  const { isOpen, toggle, portfolio } = props;
+  const images = [portfolio.imageUrl, portfolio.imageUrl2, portfolio.imageUrl3];
 
+  console.log('CARD DETAIL:', images);
   return (
     <div>
       <Modal isOpen={isOpen} toggle={toggle}>
         <ModalHeader toggle={toggle}>{portfolioEdit.title}</ModalHeader>
         <ModalBody>
+          <CarouselModal images={images} />
           <p>
             <b>{portfolio.title}</b>
           </p>
