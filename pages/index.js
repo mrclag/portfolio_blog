@@ -12,23 +12,16 @@ const Index = props => {
       title="Matthew Clagett - Portfolio"
     >
       <div className="main-section">
-        <div className="background-image">
-          <img src="/static/images/background3.png" />
-        </div>
-
         <Container>
           <Row>
-            <Col md="6">
+            <Col md="5">
               <div className="hero-section">
-                <img className="image" src="/static/images/icecream.jpg" />
-                <div className="shadow-custom">
-                  <div className="shadow-inner"> </div>
-                </div>
+                <img className="image" src="/static/images/icecream.png" />
               </div>
             </Col>
             <Col
               style={{ padding: '30px' }}
-              md="6"
+              md="7"
               className="hero-welcome-wrapper"
             >
               <div className="hero-welcome-bio">

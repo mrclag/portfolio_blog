@@ -21,13 +21,6 @@ const BsNavLink = props => {
   );
 };
 
-const Login = () => {
-  return (
-    <span onClick={auth0.login} className="nav-link port-navbar-link clickable">
-      Login
-    </span>
-  );
-};
 const Logout = () => {
   return (
     <span
@@ -63,9 +56,9 @@ const Header = props => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/" title="Home" />
             </NavItem>
-            <NavItem className="port-navbar-item">
+            {/* <NavItem className="port-navbar-item">
               <BsNavLink route="/about" title="About" />
-            </NavItem>
+            </NavItem> */}
             <NavItem className="port-navbar-item">
               <BsNavLink route="/portfolios" title="Projects" />
             </NavItem>
@@ -80,7 +73,7 @@ const Header = props => {
               <BsNavLink route="/cv" title="CV" />
             </NavItem> */}
             <NavItem className="port-navbar-item">
-              {isAuthenticated ? <Logout /> : <Login />}
+              {isAuthenticated ? <Logout /> : ''}
             </NavItem>
           </Nav>
         </Collapse>

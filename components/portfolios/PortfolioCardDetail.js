@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import portfolioEdit from '../../pages/portfolioEdit';
 import CarouselModal from './CarouselModal';
 
 const PortfolioCardDetail = props => {
   const { isOpen, toggle, portfolio } = props;
   const images = [portfolio.imageUrl, portfolio.imageUrl2, portfolio.imageUrl3];
 
-  console.log('CARD DETAIL:', images);
   return (
     <div>
       <Modal size="lg" isOpen={isOpen} toggle={toggle}>
@@ -25,6 +23,7 @@ const PortfolioCardDetail = props => {
           </p>
           <p>
             <Button
+              size="lg"
               color="primary"
               className="btn"
               href={portfolio.githubUrl}

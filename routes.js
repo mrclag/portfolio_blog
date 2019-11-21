@@ -6,4 +6,5 @@ module.exports = routes()
   .add('portfolioEdit', '/portfolios/:id/edit')
   .add('blogEditor', '/blogs/new')
   .add('blogDetail', '/blogs/:slug')
-  .add('blogEditorUpdate', '/blogs/:id/edit');
+  .add('blogEditorUpdate', '/blogs/:id/edit')
+  .add('login', '/login');
