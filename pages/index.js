@@ -11,8 +11,12 @@ const Index = props => {
       headerType="index"
       title="Matthew Clagett - Portfolio"
     >
-      <div className="main-section">
-        <Container>
+      <Container>
+        <div className="main-section">
+          <img
+            src="/static/images/background3.png"
+            className="background-image"
+          ></img>
           <Row>
             <Col md="5">
               <div className="hero-section">
@@ -30,7 +34,7 @@ const Index = props => {
                   typeSpeed={15}
                   backSpeed={20}
                   strings={[
-                    "<h1><strong>Hi, I'm Matt.</strong></h1><br/>^500I am a self-taught software developer, and just graduated UC Berkeley with a degree in Business Administration.^500<br/><br/> Be sure to check out my projects page!"
+                    "<h1><strong>Hi, I'm Matt.</strong></h1><br/>^500I am a self-taught software developer, and just graduated UC Berkeley with a degree in Business Administration.^500<br/><br/> Currently creating web development projects, primarily using React, Express, Node, and Python. Looking for a position starting in Spring 2020.^500<br/><br/>Be sure to check out my projects page!"
                   ]}
                   backDelay={1000}
                   loopCount={0}
@@ -41,8 +45,8 @@ const Index = props => {
               </div>
             </Col>
           </Row>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </BaseLayout>
   );
 };

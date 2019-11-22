@@ -56,9 +56,6 @@ const Header = props => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/" title="Home" />
             </NavItem>
-            {/* <NavItem className="port-navbar-item">
-              <BsNavLink route="/about" title="About" />
-            </NavItem> */}
             <NavItem className="port-navbar-item">
               <BsNavLink route="/portfolios" title="Projects" />
             </NavItem>
