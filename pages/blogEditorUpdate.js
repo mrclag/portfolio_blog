@@ -7,9 +7,7 @@ import { toast } from 'react-toastify';
 import { Container } from 'reactstrap';
 
 import moment from 'moment';
-
 import { getBlogById, updateBlog } from '../actions';
-
 import { BlogDetailWrapper } from './styles/blogDetail.styles';
 
 class BlogEditorUpdate extends Component {
