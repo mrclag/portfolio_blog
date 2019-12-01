@@ -38,7 +38,8 @@
 }
 
 .port-navbar.port-nav-base.port-nav-default {
-  background-color: $secondary !important;
+  background: linear-gradient(0deg, #5160d1 0%, #375c93 100%) !important;
+  position: relative;
 }
 
 .bg-transparent.menu-open {

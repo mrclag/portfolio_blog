@@ -4,10 +4,13 @@ import BasePage from '../components/BasePage';
 import withAuth from '../components/hoc/withAuth';
 import SlateEditor from '../components/slate-editor/Editor';
 import { toast } from 'react-toastify';
+import { Container } from 'reactstrap';
 
 import moment from 'moment';
 
 import { getBlogById, updateBlog } from '../actions';
+
+import { BlogDetailWrapper } from './styles/blogDetail.styles';
 
 class BlogEditorUpdate extends Component {
   static async getInitialProps({ query }) {
@@ -60,13 +63,15 @@ class BlogEditorUpdate extends Component {
     const { isSaving } = this.state;
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage containerClass="editor-wrapper" className="blog-editor-page">
-          <SlateEditor
-            initialValue={blog.story}
-            isLoading={isSaving}
-            save={this.updateBlog}
-          />
-        </BasePage>
+        <BlogDetailWrapper>
+          <Container>
+            <SlateEditor
+              initialValue={blog.story}
+              isLoading={isSaving}
+              save={this.updateBlog}
+            />
+          </Container>
+        </BlogDetailWrapper>
       </BaseLayout>
     );
   }

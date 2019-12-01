@@ -41,6 +41,7 @@ const CarouselModal = props => {
             height: '25vw',
             objectFit: 'cover'
           }}
+          alt="project slide"
           src={image}
         />
       </CarouselItem>

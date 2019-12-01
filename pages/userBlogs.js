@@ -8,6 +8,14 @@ import { Link, Router } from '../routes';
 import { getUserBlogs, updateBlog, deleteBlog } from '../actions';
 import moment from 'moment';
 
+import {
+  SiteHeading,
+  UserBlogList,
+  BlogStatusCol,
+  BlogStatusTitle,
+  BlogPageWrapper
+} from './styles/userBlogs.styles';
+
 class UserBlogs extends Component {
   static async getInitialProps({ req }) {
     let blogs = [];
@@ -78,19 +86,19 @@ class UserBlogs extends Component {
 
   renderBlogs(blogs) {
     return (
-      <ul className="user-blogs-list">
+      <UserBlogList>
         {blogs.map((blog, index) => (
           <li key={index}>
             <Link route={`/blogs/${blog._id}/edit`}>
               <a>{blog.title}</a>
             </Link>
             <PortButtonDropdown items={this.dropdownOptions(blog)} />
-            <div className="updatedAt">
+            <div style={{ fontSize: '0.5em' }}>
               {moment(blog.updatedAt).format('lll')}
             </div>
           </li>
         ))}
-      </ul>
+      </UserBlogList>
     );
   }
 
@@ -99,41 +107,31 @@ class UserBlogs extends Component {
     const { published, drafts } = this.separateBlogs(blogs);
     return (
       <BaseLayout {...this.props.auth} headerType={'landing'}>
-        <div
-          className="masthead"
-          style={{ backgroundImage: "url('/static/images/home-bg.jpg')" }}
-        >
-          <div className="overlay"></div>
+        <Container>
+          <SiteHeading>
+            <h1>Blogs</h1>
+            <Link route="/blogs/new">
+              <Button color="primary">Create new blog</Button>
+            </Link>
+            <Link route="/blogs">
+              <Button color="primary">View Blogs</Button>
+            </Link>
+          </SiteHeading>
+        </Container>
+        <BlogPageWrapper>
           <Container>
-            <div className="row">
-              <div className="col-lg-8 col-md-10 mx-auto">
-                <div className="site-heading">
-                  <h1>Blogs</h1>
-                  <span className="subheading">
-                    <Link route="/blogs/new">
-                      <Button color="primary">Create new blog</Button>
-                    </Link>
-                    <Link route="/blogs">
-                      <Button color="primary">View Blogs</Button>
-                    </Link>
-                  </span>
-                </div>
-              </div>
-            </div>
+            <Row>
+              <Col md="6" className="mx-auto text-center">
+                <BlogStatusTitle>Published Blogs</BlogStatusTitle>
+                {this.renderBlogs(published)}
+              </Col>
+              <Col md="6" className="mx-auto text-center">
+                <BlogStatusTitle>Draft Blogs</BlogStatusTitle>
+                {this.renderBlogs(drafts)}
+              </Col>
+            </Row>
           </Container>
-        </div>
-        <BasePage className="blog-user-page">
-          <Row>
-            <Col md="6" className="mx-auto text-center">
-              <h2 className="blog-status-title"> Published Blogs</h2>
-              {this.renderBlogs(published)}
-            </Col>
-            <Col md="6" className="mx-auto text-center">
-              <h2 className="blog-status-title">Draft Blogs</h2>
-              {this.renderBlogs(drafts)}
-            </Col>
-          </Row>
-        </BasePage>
+        </BlogPageWrapper>
       </BaseLayout>
     );
   }

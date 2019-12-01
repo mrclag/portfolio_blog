@@ -37,7 +37,7 @@ export default function(Comp, role) {
             <BasePage>
               <h1>
                 You are not authorized. You don't have permission to visit this
-                page
+                page.
               </h1>
             </BasePage>
           </BaseLayout>

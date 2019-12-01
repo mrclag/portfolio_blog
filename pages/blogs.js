@@ -7,6 +7,14 @@ import { getBlogs } from '../actions';
 import { shortenText } from '../helpers/utils';
 import moment from 'moment';
 
+import {
+  PostLink,
+  PostTitle,
+  PostSubtitle,
+  PostMeta,
+  SiteHeading
+} from './styles/blogs.styles';
+
 class Blogs extends Component {
   static async getInitialProps() {
     let blogs = [];
@@ -20,17 +28,21 @@ class Blogs extends Component {
 
   renderBlogs = blogs =>
     blogs.map((blog, index) => (
-      <div key={index} className="post-preview">
+      <Col
+        key={index}
+        md="8"
+        style={{ border: '1px solid black', padding: '10px', margin: 'auto' }}
+      >
         <Link route={`/blogs/${blog.slug}`}>
-          <a>
-            <h2 className="post-title">{blog.title}</h2>
-            <h3 className="post-subtitle">{shortenText(blog.subTitle)}</h3>
-          </a>
+          <PostLink>
+            <PostTitle>{blog.title}</PostTitle>
+            <PostSubtitle>{shortenText(blog.subTitle)}</PostSubtitle>
+          </PostLink>
         </Link>
-        <p className="post-meta">
+        <PostMeta>
           Posted by {blog.author} on {moment(blog.createdAt).format('LL')}
-        </p>
-      </div>
+        </PostMeta>
+      </Col>
     ));
 
   render() {
@@ -39,38 +51,15 @@ class Blogs extends Component {
       <BaseLayout
         {...this.props.auth}
         headerType={'landing'}
-        className="blog-listing-page"
         title="Matthew Clagett - Blogs"
       >
-        <div
-          className="masthead"
-          style={{ backgroundImage: "url('/static/images/home-bg.jpg')" }}
-        >
-          <div className="overlay"></div>
-          <Container>
-            <div className="row">
-              <div className="col-lg-8 col-md-10 mx-auto">
-                <div className="site-heading">
-                  <h1>Fresh Blogs</h1>
-                  <span className="subheading">Programming, travelling...</span>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </div>
-        <BasePage className="blog-body">
-          <Row>
-            <Col md="10" lg="8" className="mx-auto">
-              {this.renderBlogs(blogs)}
-              <div className="clearfix">
-                <a className="btn btn-primary float-right" href="#">
-                  Older Posts &rarr;
-                </a>
-              </div>
-            </Col>
-          </Row>
-
-          <footer></footer>
+        <Container>
+          <SiteHeading>
+            <h1>Fresh Blogs</h1>
+          </SiteHeading>
+        </Container>
+        <BasePage>
+          <Row>{this.renderBlogs(blogs)}</Row>
         </BasePage>
       </BaseLayout>
     );

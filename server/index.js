@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const routes = require('../routes');
 const path = require('path');
 const cors = require('cors');
+const enforce = require('express-sslify');
 
 // SERVICE
 

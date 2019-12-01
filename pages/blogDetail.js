@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import BasePage from '../components/BasePage';
 import { getBlogBySlug } from '../actions';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
+
+import { BlogDetailWrapper } from './styles/blogDetail.styles';
 
 class BlogDetail extends Component {
   static async getInitialProps({ query }) {
@@ -20,13 +22,15 @@ class BlogDetail extends Component {
     const { blog } = this.props;
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage className="blog-detail-page">
-          <Row>
-            <Col md={{ size: 8, offset: 2 }}>
-              <div dangerouslySetInnerHTML={{ __html: blog.story }}></div>
-            </Col>
-          </Row>
-        </BasePage>
+        <BlogDetailWrapper>
+          <Container>
+            <Row>
+              <Col md={{ size: 8, offset: 2 }}>
+                <div dangerouslySetInnerHTML={{ __html: blog.story }}></div>
+              </Col>
+            </Row>
+          </Container>
+        </BlogDetailWrapper>
       </BaseLayout>
     );
   }

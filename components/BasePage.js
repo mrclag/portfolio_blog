@@ -7,14 +7,7 @@ const BasePage = props => {
 
   return (
     <div className={`base-page ${className}`}>
-      <Container className={containerClass}>
-        {title && (
-          <div className="page-header">
-            <h1 className="page-header-title">{title}</h1>
-          </div>
-        )}
-        {props.children}
-      </Container>
+      <Container className={containerClass}>{props.children}</Container>
     </div>
   );
 };
