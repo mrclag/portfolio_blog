@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
-import BasePage from '../components/BasePage';
 import { getPortfolios, deletePortfolio } from '../actions/index';
 import { Router } from '../routes';
 import PortfolioCard from '../components/portfolios/PortfolioCard';
 
 import { Col, Row, Button } from 'reactstrap';
+import BaseStyles from './styles/baseStyles.styles';
 
 // turn this into a functional component
 class Portfolios extends Component {
@@ -77,7 +77,7 @@ class Portfolios extends Component {
     const { isAuthenticated, isSiteOwner } = this.props.auth;
     return (
       <BaseLayout {...this.props.auth} title="Matthew Clagett - Projects">
-        <BasePage title="Projects" className="portfolio-page">
+        <BaseStyles title="Projects" className="portfolio-page">
           {isAuthenticated && isSiteOwner && (
             <Button
               onClick={() => Router.pushRoute('/portfolios/new')}
@@ -88,7 +88,7 @@ class Portfolios extends Component {
             </Button>
           )}
           <Row>{this.renderPortfolios(portfolios)}</Row>
-        </BasePage>
+        </BaseStyles>
       </BaseLayout>
     );
   }

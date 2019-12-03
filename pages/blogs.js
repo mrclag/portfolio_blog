@@ -12,7 +12,8 @@ import {
   PostTitle,
   PostSubtitle,
   PostMeta,
-  SiteHeading
+  SiteHeading,
+  BlogPageWrapper
 } from './styles/blogs.styles';
 
 class Blogs extends Component {
@@ -58,9 +59,9 @@ class Blogs extends Component {
             <h1>Fresh Blogs</h1>
           </SiteHeading>
         </Container>
-        <BasePage>
+        <BlogPageWrapper>
           <Row>{this.renderBlogs(blogs)}</Row>
-        </BasePage>
+        </BlogPageWrapper>
       </BaseLayout>
     );
   }

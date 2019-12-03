@@ -44,3 +44,9 @@ export const SiteHeading = styled.div`
     font-size: 80px;
   }
 `;
+
+export const BlogPageWrapper = styled.div`
+  color: black;
+  background-color: #ecedee;
+  min-height: 100vh;
+`;
