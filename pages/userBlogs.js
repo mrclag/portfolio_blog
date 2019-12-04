@@ -13,7 +13,7 @@ import {
   BlogStatusCol,
   BlogStatusTitle,
   BlogPageWrapper
-} from './styles/userBlogs.styles';
+} from '../styles/userBlogs.styles';
 
 class UserBlogs extends Component {
   static async getInitialProps({ req }) {

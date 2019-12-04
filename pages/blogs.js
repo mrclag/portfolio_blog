@@ -14,7 +14,7 @@ import {
   SiteHeading,
   BlogPageWrapper,
   Title
-} from './styles/blogs.styles';
+} from '../styles/blogs.styles';
 
 class Blogs extends Component {
   static async getInitialProps() {

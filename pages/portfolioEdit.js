@@ -5,7 +5,7 @@ import withAuth from '../components/hoc/withAuth';
 import { Row, Col, Container } from 'reactstrap';
 import { Router } from '../routes';
 
-import { BaseStyles } from './styles/baseStyles.styles';
+import { BaseStyles } from '../styles/baseStyles.styles';
 import { updatePortfolio, getPortfolioById } from '../actions/index';
 
 class PortfolioEdit extends Component {

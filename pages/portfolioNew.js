@@ -6,7 +6,7 @@ import { Row, Col, Container } from 'reactstrap';
 import { Router } from '../routes';
 
 import { createPortfolio } from '../actions/index';
-import { BaseStyles } from './styles/baseStyles.styles';
+import { BaseStyles } from '../styles/baseStyles.styles';
 
 const INITIAL_VALUES = {
   title: '',

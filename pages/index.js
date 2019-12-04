@@ -9,7 +9,7 @@ import {
   BackgroundImage,
   ProfileImage,
   Bio
-} from './styles/index.styles';
+} from '../styles/index.styles';
 
 const Index = props => {
   return (

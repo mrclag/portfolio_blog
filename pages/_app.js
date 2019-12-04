@@ -4,7 +4,7 @@ import auth0 from '../services/auth0';
 import { ToastContainer } from 'react-toastify';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import GlobalStyle from './styles/global-styles';
+import GlobalStyle from '../styles/global-styles';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default class MyApp extends App {

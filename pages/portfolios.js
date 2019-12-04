@@ -5,8 +5,8 @@ import { Router } from '../routes';
 import PortfolioCard from '../components/portfolios/PortfolioCard';
 
 import { Col, Row, Button } from 'reactstrap';
-import { BaseStyles } from './styles/baseStyles.styles';
-import { PortfolioPageWrapper, Title } from './styles/portfolios.styles';
+import { BaseStyles } from '../styles/baseStyles.styles';
+import { PortfolioPageWrapper, Title } from '../styles/portfolios.styles';
 
 // turn this into a functional component
 class Portfolios extends Component {

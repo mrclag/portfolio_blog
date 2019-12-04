@@ -8,7 +8,7 @@ import { Container } from 'reactstrap';
 
 import { createBlog } from '../actions';
 
-import { BlogDetailWrapper } from './styles/blogDetail.styles';
+import { BlogDetailWrapper } from '../styles/blogDetail.styles';
 
 const BlogEditor = props => {
   const [isSaving, setIsSaving] = useState(false);

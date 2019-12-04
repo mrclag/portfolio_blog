@@ -3,7 +3,7 @@ import BaseLayout from '../components/layouts/BaseLayout';
 import { getBlogBySlug } from '../actions';
 import { Row, Col, Container } from 'reactstrap';
 
-import { BlogDetailWrapper, BlogArticle } from './styles/blogDetail.styles';
+import { BlogDetailWrapper, BlogArticle } from '../styles/blogDetail.styles';
 
 class BlogDetail extends Component {
   static async getInitialProps({ query }) {
