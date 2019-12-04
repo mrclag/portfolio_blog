@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BaseLayout from '../layouts/BaseLayout';
-import BasePage from '../BasePage';
+import { BaseStyles } from '../../pages/styles/baseStyles.styles';
 
 export default function(Comp, role) {
   return class withAuth extends Component {
@@ -26,20 +26,20 @@ export default function(Comp, role) {
       if (!isAuthenticated) {
         return (
           <BaseLayout {...this.props.auth}>
-            <BasePage>
+            <BaseStyles>
               <h1>You are not authenticated. Please Log In</h1>
-            </BasePage>
+            </BaseStyles>
           </BaseLayout>
         );
       } else if (!isAuthorized) {
         return (
           <BaseLayout {...this.props.auth}>
-            <BasePage>
+            <BaseStyles>
               <h1>
                 You are not authorized. You don't have permission to visit this
                 page.
               </h1>
-            </BasePage>
+            </BaseStyles>
           </BaseLayout>
         );
       } else {

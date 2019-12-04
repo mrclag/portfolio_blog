@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
-import BasePage from '../components/BasePage';
 import withAuth from '../components/hoc/withAuth';
 import PortButtonDropdown from '../components/ButtonDropdown';
 import { Container, Row, Col, Button } from 'reactstrap';

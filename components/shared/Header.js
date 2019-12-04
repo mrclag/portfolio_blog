@@ -1,79 +1,89 @@
 import React, { useState } from 'react';
 import ActiveLink from '../ActiveLink';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem
-} from 'reactstrap';
+import { Link } from '../../routes';
+import BurgerMenu from './BurgerMenu';
+import CollapseMenu from './CollapseMenu';
+import styled from 'styled-components';
 
-import auth0 from '../../services/auth0';
+import { useSpring, animated, config } from 'react-spring';
 
-const BsNavLink = props => {
-  const { route, title } = props;
-
-  return (
-    <ActiveLink activeClassName="active" route={route}>
-      <a className="nav-link port-navbar-link">{title}</a>
-    </ActiveLink>
-  );
-};
-
-const Logout = () => {
-  return (
-    <span
-      onClick={auth0.logout}
-      className="nav-link port-navbar-link clickable"
-    >
-      Logout
-    </span>
-  );
-};
+import { withRouter } from 'next/router';
+import { Brand } from '../styles/Header.styles';
+import NavbarLinks from './NavBarLinks';
 
 const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated, user, className } = props;
-  const toggle = () => setIsOpen(!isOpen);
+  const { isAuthenticated, user, className, router } = props;
+  const handleNavbar = () => setIsOpen(!isOpen);
+  console.log(router.asPath);
 
-  const menuOpenClass = isOpen ? 'menu-open' : 'menu-close';
+  const barAnimation = useSpring({
+    from: { transform: 'translate3d(0, -10rem, 0)' },
+    transform: 'translate3d(0, 0, 0)'
+  });
+
+  const linkAnimation = useSpring({
+    from: { transform: 'translate3d(0, 30px, 0)', opacity: 0 },
+    to: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
+    delay: 800,
+    config: config.wobbly
+  });
 
   return (
     <div>
-      <Navbar
-        color="transparent"
-        dark
-        expand="md"
-        className={`port-navbar port-nav-base absolute ${className} ${menuOpenClass}`}
-      >
-        <NavbarBrand className="port-navbar-brand" href="/">
-          Matt Clagett
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem className="port-navbar-item">
-              <BsNavLink route="/" title="Home" />
-            </NavItem>
-            <NavItem className="port-navbar-item">
-              <BsNavLink route="/portfolios" title="Projects" />
-            </NavItem>
-            <NavItem className="port-navbar-item">
-              {isAuthenticated ? (
-                <BsNavLink route="/userBlogs" title="Edit Blogs" />
-              ) : (
-                <BsNavLink route="/blogs" title="Blog" />
-              )}
-            </NavItem>
-            <NavItem className="port-navbar-item">
-              {isAuthenticated ? <Logout /> : ''}
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
+      <NavBar style={barAnimation}>
+        <FlexContainer>
+          <Brand href="/">Matt Clagett</Brand>
+          <NavLinks style={linkAnimation}>
+            <NavbarLinks isAuthenticated={isAuthenticated} />
+          </NavLinks>
+          <BurgerWrapper>
+            <BurgerMenu navbarState={isOpen} handleNavbar={handleNavbar} />
+          </BurgerWrapper>
+        </FlexContainer>
+      </NavBar>
+      <CollapseMenu navbarState={isOpen} handleNavbar={handleNavbar} />
     </div>
   );
 };
 
-export default Header;
+export default withRouter(Header);
+
+const NavBar = styled(animated.nav)`
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #2d3436;
+  z-index: 16;
+  font-size: 1.4rem;
+`;
+
+const FlexContainer = styled.div`
+  max-width: 120rem;
+  display: flex;
+  margin: auto;
+  padding: 0 2rem;
+  justify-content: space-between;
+  height: 5rem;
+`;
+
+const NavLinks = styled(animated.ul)`
+  justify-self: end;
+  list-style-type: none;
+  margin: auto 0;
+
+  & a {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+`;
+
+const BurgerWrapper = styled.div`
+  margin: auto 0;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+`;

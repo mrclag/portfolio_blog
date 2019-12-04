@@ -4,7 +4,7 @@ import auth0 from '../services/auth0';
 import { ToastContainer } from 'react-toastify';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/main.scss';
+import GlobalStyle from './styles/global-styles';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default class MyApp extends App {
@@ -30,6 +30,7 @@ export default class MyApp extends App {
 
     return (
       <Fragment>
+        <GlobalStyle />
         <ToastContainer />
         <Component {...pageProps} auth={auth} />
       </Fragment>

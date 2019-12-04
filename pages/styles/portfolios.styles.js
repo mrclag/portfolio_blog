@@ -1,6 +1,10 @@
-.portfolio-page {
+import styled from 'styled-components';
+
+export const PortfolioPageWrapper = styled.div`
   min-height: 100vh;
   padding: 50px 0 0;
+  width: 90vw;
+  margin: auto;
 
   .portfolio-card {
     background-image: linear-gradient(45deg, #4e54c8 0%, #8f94fb 100%);
@@ -42,7 +46,4 @@
       margin-bottom: 50px;
     }
   }
-  .create-port-btn {
-    margin-bottom: 20px;
-  }
-}
+`;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
-import BasePage from '../components/BasePage';
 import PorfolioCreateForm from '../components/portfolios/PortfolioCreateForm';
 import withAuth from '../components/hoc/withAuth';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 import { Router } from '../routes';
 
+import { BaseStyles } from './styles/baseStyles.styles';
 import { updatePortfolio, getPortfolioById } from '../actions/index';
 
 class PortfolioEdit extends Component {
@@ -47,17 +47,19 @@ class PortfolioEdit extends Component {
     const { portfolio } = this.props;
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage className="portfolio-create-page" title="Update Portfolio">
-          <Row>
-            <Col md="6">
-              <PorfolioCreateForm
-                initialValues={portfolio}
-                error={error}
-                onSubmit={this.updatePortfolio}
-              />
-            </Col>
-          </Row>
-        </BasePage>
+        <BaseStyles>
+          <Container>
+            <Row>
+              <Col md="6">
+                <PorfolioCreateForm
+                  initialValues={portfolio}
+                  error={error}
+                  onSubmit={this.updatePortfolio}
+                />
+              </Col>
+            </Row>
+          </Container>
+        </BaseStyles>
       </BaseLayout>
     );
   }

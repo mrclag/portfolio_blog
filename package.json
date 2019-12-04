@@ -48,6 +48,7 @@
     "react-dom": "^16.6.0",
     "react-emotion": "^9.2.12",
     "react-router-dom": "^5.1.2",
+    "react-spring": "^8.0.27",
     "react-toastify": "^4.5.2",
     "react-typed": "^1.2.0",
     "reactstrap": "^6.5.0",

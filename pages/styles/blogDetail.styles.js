@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const BlogDetailWrapper = styled.div`
+  padding-top: 10vh;
   color: black;
   background-color: #ecedee;
   min-height: 100vh;
-  border: 1px solid black;
 
   @media only screen and (min-width: 991px) {
     .editor-wrapper {

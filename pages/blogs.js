@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
-import BasePage from '../components/BasePage';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from '../routes';
 import { getBlogs } from '../actions';
@@ -56,7 +55,7 @@ class Blogs extends Component {
       >
         <Container>
           <SiteHeading>
-            <h1>Fresh Blogs</h1>
+            <h1>Blogs</h1>
           </SiteHeading>
         </Container>
         <BlogPageWrapper>

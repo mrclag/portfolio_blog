@@ -5,7 +5,8 @@ import { Router } from '../routes';
 import PortfolioCard from '../components/portfolios/PortfolioCard';
 
 import { Col, Row, Button } from 'reactstrap';
-import BaseStyles from './styles/baseStyles.styles';
+import { BaseStyles } from './styles/baseStyles.styles';
+import { PortfolioPageWrapper } from './styles/portfolios.styles';
 
 // turn this into a functional component
 class Portfolios extends Component {
@@ -77,18 +78,17 @@ class Portfolios extends Component {
     const { isAuthenticated, isSiteOwner } = this.props.auth;
     return (
       <BaseLayout {...this.props.auth} title="Matthew Clagett - Projects">
-        <BaseStyles title="Projects" className="portfolio-page">
+        <PortfolioPageWrapper>
           {isAuthenticated && isSiteOwner && (
             <Button
               onClick={() => Router.pushRoute('/portfolios/new')}
               color="success"
-              className="create-port-btn"
             >
               Add Project
             </Button>
           )}
           <Row>{this.renderPortfolios(portfolios)}</Row>
-        </BaseStyles>
+        </PortfolioPageWrapper>
       </BaseLayout>
     );
   }

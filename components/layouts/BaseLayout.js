@@ -2,6 +2,8 @@ import { Fragment } from 'react';
 import Header from '../shared/Header';
 import Head from 'next/head';
 
+import { Cover, Wrapper } from '../styles/BaseLayout.styles';
+
 const BaseLayout = props => {
   const {
     className,
@@ -40,16 +42,15 @@ const BaseLayout = props => {
           rel="stylesheet"
         />
       </Head>
-      <div className="layout-container">
+      <div>
         <Header
-          className={`port-nav-${headerType}`}
           isAuthenticated={isAuthenticated}
           isSiteOwner={isSiteOwner}
           user={user}
         />
-        <main className={`cover ${className}`}>
-          <div className="wrapper">{children}</div>
-        </main>
+        <Cover>
+          <Wrapper>{children}</Wrapper>
+        </Cover>
       </div>
     </Fragment>
   );

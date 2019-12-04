@@ -27,7 +27,6 @@ const PortButtonDropdown = props => {
 
   return (
     <ButtonDropdown
-      className="port-dropdown"
       isOpen={dropdownOpen}
       toggle={toggle}
       style={{ marginLeft: '10px' }}

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
-import BasePage from '../components/BasePage';
 import PorfolioCreateForm from '../components/portfolios/PortfolioCreateForm';
 import withAuth from '../components/hoc/withAuth';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 import { Router } from '../routes';
 
 import { createPortfolio } from '../actions/index';
+import { BaseStyles } from './styles/baseStyles.styles';
 
 const INITIAL_VALUES = {
   title: '',
@@ -39,17 +39,19 @@ const PortfolioNew = props => {
 
   return (
     <BaseLayout {...props.auth}>
-      <BasePage className="portfolio-create-page" title="Add Project">
-        <Row>
-          <Col md="6">
-            <PorfolioCreateForm
-              initialValues={INITIAL_VALUES}
-              error={error}
-              onSubmit={savePortfolio}
-            />
-          </Col>
-        </Row>
-      </BasePage>
+      <BaseStyles>
+        <Container>
+          <Row>
+            <Col md="6">
+              <PorfolioCreateForm
+                initialValues={INITIAL_VALUES}
+                error={error}
+                onSubmit={savePortfolio}
+              />
+            </Col>
+          </Row>
+        </Container>
+      </BaseStyles>
     </BaseLayout>
   );
 };

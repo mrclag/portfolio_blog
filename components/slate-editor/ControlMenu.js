@@ -1,16 +1,19 @@
 import { Button } from 'reactstrap';
+import {
+  ControlMenuWrapper,
+  Title,
+  StatusBox
+} from '../styles/SlateEditor.styles';
 
 const ControlMenu = props => {
   return (
-    <div className="control-menu">
-      <h1 className="title">Edit Blog</h1>
-      <div className="status-box">
-        {props.isLoading ? 'Saving... ' : 'Saved'}
-      </div>
+    <ControlMenuWrapper>
+      <Title>Edit Blog</Title>
+      <StatusBox>{props.isLoading ? 'Saving... ' : 'Saved'}</StatusBox>
       <Button disabled={props.isLoading} onClick={props.save} color="success">
         Save
       </Button>
-    </div>
+    </ControlMenuWrapper>
   );
 };
 export default ControlMenu;
