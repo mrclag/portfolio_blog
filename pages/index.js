@@ -14,16 +14,15 @@ import {
 const Index = props => {
   return (
     <>
-      <BaseLayout
-        {...props.auth}
-        headerType="index"
-        title="Matthew Clagett - Portfolio"
-      >
-        <Background />
-        <Overlay />
-        <BackgroundImage src="/static/images/background3.png" />
-        <MainSection>
-          <Row>
+      <Background>
+        <BaseLayout
+          {...props.auth}
+          headerType="index"
+          title="Matthew Clagett - Portfolio"
+        >
+          <Overlay />
+          <BackgroundImage src="/static/images/background3.png" />
+          <MainSection>
             <ProfileImage src="/static/images/icecream.png" />
             <Bio>
               <Typed
@@ -38,9 +37,9 @@ const Index = props => {
                 cursorChar="|"
               />
             </Bio>
-          </Row>
-        </MainSection>
-      </BaseLayout>
+          </MainSection>
+        </BaseLayout>
+      </Background>
     </>
   );
 };

@@ -24,6 +24,7 @@ const PortfolioCard = props => {
           }}
           src={portfolio.imageUrl}
           alt="Card image"
+          className="portfolio-card-img"
         />
 
         <CardBody>

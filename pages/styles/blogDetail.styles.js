@@ -26,3 +26,10 @@ export const BlogDetailWrapper = styled.div`
     display: block;
   }
 `;
+
+export const BlogArticle = styled.div`
+  width: 1200px;
+  background-color: white;
+  margin: auto;
+  padding: 5vh 10vw;
+`;

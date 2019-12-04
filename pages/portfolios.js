@@ -6,7 +6,7 @@ import PortfolioCard from '../components/portfolios/PortfolioCard';
 
 import { Col, Row, Button } from 'reactstrap';
 import { BaseStyles } from './styles/baseStyles.styles';
-import { PortfolioPageWrapper } from './styles/portfolios.styles';
+import { PortfolioPageWrapper, Title } from './styles/portfolios.styles';
 
 // turn this into a functional component
 class Portfolios extends Component {
@@ -79,6 +79,7 @@ class Portfolios extends Component {
     return (
       <BaseLayout {...this.props.auth} title="Matthew Clagett - Projects">
         <PortfolioPageWrapper>
+          <Title>Projects</Title>
           {isAuthenticated && isSiteOwner && (
             <Button
               onClick={() => Router.pushRoute('/portfolios/new')}

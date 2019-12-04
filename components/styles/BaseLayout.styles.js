@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Cover = styled.main`
-  background: linear-gradient(45deg, #5160d1 0%, #375c93 50%);
+  /* background: linear-gradient(45deg, #5160d1 0%, #375c93 50%); */
   background-size: cover;
   position: relative;
 `;

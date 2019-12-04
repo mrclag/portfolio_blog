@@ -3,12 +3,16 @@ import auth0 from '../../services/auth0';
 import { Link } from '../../routes';
 import { NavbarLink } from '../styles/Header.styles';
 
-const NavBarLinks = ({ isAuthenticated }) => {
+const NavBarLinks = ({ isAuthenticated, collapse, currentRoute }) => {
   const BsNavLink = props => {
     const { route, title } = props;
+    const activeLink = currentRoute == route;
+
     return (
       <Link route={route}>
-        <NavbarLink>{title}</NavbarLink>
+        <NavbarLink activeLink={activeLink} collapse={collapse}>
+          {title}
+        </NavbarLink>
       </Link>
     );
   };

@@ -3,7 +3,7 @@ import BaseLayout from '../components/layouts/BaseLayout';
 import { getBlogBySlug } from '../actions';
 import { Row, Col, Container } from 'reactstrap';
 
-import { BlogDetailWrapper } from './styles/blogDetail.styles';
+import { BlogDetailWrapper, BlogArticle } from './styles/blogDetail.styles';
 
 class BlogDetail extends Component {
   static async getInitialProps({ query }) {
@@ -22,13 +22,9 @@ class BlogDetail extends Component {
     return (
       <BaseLayout {...this.props.auth}>
         <BlogDetailWrapper>
-          <Container>
-            <Row>
-              <Col md={{ size: 8, offset: 2 }}>
-                <div dangerouslySetInnerHTML={{ __html: blog.story }}></div>
-              </Col>
-            </Row>
-          </Container>
+          <BlogArticle>
+            <div dangerouslySetInnerHTML={{ __html: blog.story }}></div>
+          </BlogArticle>
         </BlogDetailWrapper>
       </BaseLayout>
     );

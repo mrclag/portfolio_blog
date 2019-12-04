@@ -30,23 +30,21 @@ export const PostMeta = styled.p`
   color: #868e96;
 `;
 
-export const SiteHeading = styled.div`
+export const Title = styled.div`
   text-align: center;
-  padding: 150px 0 75px;
-  color: white;
+  color: black;
   font-size: 50px;
-  margin-top: 0;
+  margin: 5vh 5vw;
   font-weight: 700;
 
   @media only screen and (min-width: 768px) {
-    padding: 100px 0 10px 0;
-    min-height: 20vh;
     font-size: 80px;
   }
 `;
 
 export const BlogPageWrapper = styled.div`
   color: black;
+  padding-top: 10vh;
   background-color: #ecedee;
   min-height: 100vh;
 `;

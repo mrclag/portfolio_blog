@@ -19,7 +19,7 @@ const CollapseMenu = props => {
         }}
       >
         <NavLinks>
-          <NavBarLinks />
+          <NavBarLinks collapse={true} />
         </NavLinks>
       </CollapseWrapper>
     );
@@ -31,7 +31,7 @@ export default CollapseMenu;
 
 const CollapseWrapper = styled(animated.div)`
   background: #2d3436;
-  position: absolute;
+  position: fixed;
   top: 4.5rem;
   left: 0;
   right: 0;

@@ -10,8 +10,8 @@ export const Brand = styled.div`
 `;
 
 export const NavbarLink = styled.a`
-  margin: 0 1.5rem;
-  color: white !important;
+  margin: 1.5rem 1.5rem;
+  color: ${props => (props.activeLink ? '#dba919' : 'white')} !important;
   font-weight: bold;
   letter-spacing: 0.8px;
   font-size: 18px;
@@ -23,14 +23,5 @@ export const NavbarLink = styled.a`
   &:focus {
     color: #dba919 !important;
   }
-`;
-
-export const NavbarWrapper = styled.div`
-  width: 100%;
-  z-index: 15;
-  padding: 40px;
-  position: absolute;
-  color: transparent;
-  background: linear-gradient(0deg, #5160d1 0%, #375c93 100%) !important;
-  position: relative;
+  display: ${props => (props.collapse ? 'flex' : 'unset')};
 `;

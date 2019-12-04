@@ -15,7 +15,6 @@ const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated, user, className, router } = props;
   const handleNavbar = () => setIsOpen(!isOpen);
-  console.log(router.asPath);
 
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -10rem, 0)' },
@@ -35,7 +34,10 @@ const Header = props => {
         <FlexContainer>
           <Brand href="/">Matt Clagett</Brand>
           <NavLinks style={linkAnimation}>
-            <NavbarLinks isAuthenticated={isAuthenticated} />
+            <NavbarLinks
+              currentRoute={router.asPath}
+              isAuthenticated={isAuthenticated}
+            />
           </NavLinks>
           <BurgerWrapper>
             <BurgerMenu navbarState={isOpen} handleNavbar={handleNavbar} />

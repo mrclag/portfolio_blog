@@ -12,7 +12,8 @@ import {
   PostSubtitle,
   PostMeta,
   SiteHeading,
-  BlogPageWrapper
+  BlogPageWrapper,
+  Title
 } from './styles/blogs.styles';
 
 class Blogs extends Component {
@@ -31,7 +32,12 @@ class Blogs extends Component {
       <Col
         key={index}
         md="8"
-        style={{ border: '1px solid black', padding: '10px', margin: 'auto' }}
+        style={{
+          border: '1px solid black',
+          borderBottom: 'none',
+          padding: '10px 40px',
+          margin: 'auto'
+        }}
       >
         <Link route={`/blogs/${blog.slug}`}>
           <PostLink>
@@ -53,12 +59,10 @@ class Blogs extends Component {
         headerType={'landing'}
         title="Matthew Clagett - Blogs"
       >
-        <Container>
-          <SiteHeading>
-            <h1>Blogs</h1>
-          </SiteHeading>
-        </Container>
         <BlogPageWrapper>
+          <Title>
+            <h1>Blogs</h1>
+          </Title>
           <Row>{this.renderBlogs(blogs)}</Row>
         </BlogPageWrapper>
       </BaseLayout>
