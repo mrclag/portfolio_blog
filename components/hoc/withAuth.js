@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BaseLayout from '../layouts/BaseLayout';
-import { BaseStyles } from '../../pages/styles/baseStyles.styles';
+import { BaseStyles } from '../../styles/baseStyles.styles';
 
 export default function(Comp, role) {
   return class withAuth extends Component {
