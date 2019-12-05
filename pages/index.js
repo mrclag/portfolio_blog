@@ -26,10 +26,10 @@ const Index = props => {
             <ProfileImage src="/static/images/icecream.png" />
             <Bio>
               <Typed
-                typeSpeed={15}
+                typeSpeed={10}
                 backSpeed={20}
                 strings={[
-                  "<h1><strong>Hi, I'm Matt.</strong></h1><br/>^500I am a self-taught software developer, and just graduated UC Berkeley with a degree in Business Administration.^500<br/><br/> Currently creating web development projects, primarily using React, Express, Node, and Python. Looking for a position starting in Spring 2020.^500<br/><br/>Be sure to check out my projects page!"
+                  '<h1><strong>Matthew Clagett</strong></h1><br/>^500Self-taught software developer, and May 2019 UC Berkeley Business Administration graduate.^500<br/><br/>Currently specialize in React web development, but love learning and building new things with new tools. Looking for a position starting in Spring 2020.'
                 ]}
                 backDelay={1000}
                 loopCount={0}

@@ -14,23 +14,28 @@ export const Overlay = styled.div`
 
 export const MainSection = styled.div`
   width: 80vw;
-  padding-top: 25vh;
-  position: relative;
+  position: absolute;
   margin: auto;
   display: flex;
+  height: 35vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   @media only screen and (max-width: 991px) {
+    top: 17vh;
     padding-top: 12vh;
+    display: unset;
   }
 `;
 
 export const BackgroundImage = styled.img`
-  opacity: 0.1;
+  opacity: 0.15;
   min-height: 100%;
   min-width: 1024px;
   width: 100%;
   height: auto;
-  position: fixed;
-  top: 0px;
+  position: relative;
+  top: 150px;
   left: 0;
 }
 `;
@@ -45,20 +50,19 @@ export const ProfileImage = styled.img`
   bottom: 40px;
   z-index: 2;
   @media (max-width: 991px) {
-    width: 80%;
+    width: 70vw;
+    margin: 0 5vw;
   }
 `;
 
 export const Bio = styled.div`
   width: 50vw;
-  margin-top: 5vh;
   color: white;
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 16px;
   @media only screen and (max-width: 991px) {
-    width: 90vw;
-
+    width: 80vw;
     margin-top: 15px;
   }
 `;
