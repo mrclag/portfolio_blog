@@ -61,7 +61,7 @@ class Blogs extends Component {
       >
         <BlogPageWrapper>
           <Title>
-            <h1>Blogs</h1>
+            <h1 style={{ fontWeight: '700' }}>Blogs</h1>
           </Title>
           <Row>{this.renderBlogs(blogs)}</Row>
         </BlogPageWrapper>

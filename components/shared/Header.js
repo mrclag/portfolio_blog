@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ActiveLink from '../ActiveLink';
 import { Link } from '../../routes';
 import BurgerMenu from './BurgerMenu';
 import CollapseMenu from './CollapseMenu';

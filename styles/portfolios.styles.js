@@ -46,4 +46,5 @@ export const PortfolioPageWrapper = styled.div`
 export const Title = styled.h1`
   text-align: center;
   margin: 5vh 5vw;
+  font-weight: 700;
 `;
