@@ -18,6 +18,9 @@ const BlogEditor = props => {
     blog.title = heading.title;
     blog.subTitle = heading.subtitle;
     blog.story = story;
+    blog.imgLink = heading.imgUrl;
+    console.log(blog.imgLink);
+    console.log(blog);
 
     setIsSaving(true);
 

@@ -79,7 +79,7 @@ class Portfolios extends Component {
     return (
       <BaseLayout {...this.props.auth} title="Matthew Clagett - Projects">
         <PortfolioPageWrapper>
-          <Title>Projects</Title>
+          <Title>PROJECTS</Title>
           {isAuthenticated && isSiteOwner && (
             <Button
               onClick={() => Router.pushRoute('/portfolios/new')}

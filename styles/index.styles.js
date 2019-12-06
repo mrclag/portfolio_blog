@@ -69,3 +69,15 @@ export const NameTitle = styled.h1`
   font-weight: bold;
   font-size: 44px;
 `;
+
+export const SocialLinks = styled.div`
+  width: 75px;
+  margin-left: 50px;
+  @media screen and (max-width: 800px) {
+    width: 300px;
+    height: 75px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+  }
+`;

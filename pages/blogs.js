@@ -13,7 +13,8 @@ import {
   PostMeta,
   SiteHeading,
   BlogPageWrapper,
-  Title
+  Title,
+  BlogPostWrapper
 } from '../styles/blogs.styles';
 
 class Blogs extends Component {
@@ -29,30 +30,25 @@ class Blogs extends Component {
 
   renderBlogs = blogs =>
     blogs.map((blog, index) => (
-      <Col
-        key={index}
-        md="8"
-        style={{
-          border: '1px solid black',
-          borderBottom: 'none',
-          padding: '10px 40px',
-          margin: 'auto'
-        }}
-      >
+      <BlogPostWrapper key={index}>
         <Link route={`/blogs/${blog.slug}`}>
-          <PostLink>
-            <PostTitle>{blog.title}</PostTitle>
-            <PostSubtitle>{shortenText(blog.subTitle)}</PostSubtitle>
+          <PostLink style={{ display: 'flex' }}>
+            <img src={blog.imgLink} alt="" style={{ marginRight: '20px' }} />
+            <div>
+              <PostTitle>{blog.title}</PostTitle>
+              <PostSubtitle>{shortenText(blog.subTitle)}</PostSubtitle>
+              <PostMeta>
+                Posted by {blog.author} on {moment(blog.createdAt).format('LL')}
+              </PostMeta>
+            </div>
           </PostLink>
         </Link>
-        <PostMeta>
-          Posted by {blog.author} on {moment(blog.createdAt).format('LL')}
-        </PostMeta>
-      </Col>
+      </BlogPostWrapper>
     ));
 
   render() {
     const { blogs } = this.props;
+
     return (
       <BaseLayout
         {...this.props.auth}
@@ -60,10 +56,8 @@ class Blogs extends Component {
         title="Matthew Clagett - Blogs"
       >
         <BlogPageWrapper>
-          <Title>
-            <h1 style={{ fontWeight: '700' }}>Blogs</h1>
-          </Title>
-          <Row>{this.renderBlogs(blogs)}</Row>
+          <Title>BLOGS</Title>
+          <div>{this.renderBlogs(blogs)}</div>
         </BlogPageWrapper>
       </BaseLayout>
     );

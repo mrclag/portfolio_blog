@@ -10,7 +10,10 @@ const blogSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   status: { type: String, default: 'draft', maxlength: 2048 },
-  author: { type: String, required: true, maxlength: 2048 }
+  author: { type: String, required: true, maxlength: 2048 },
+  imgLink: {
+    type: String
+  }
 });
 
 module.exports = mongoose.model('Blog', blogSchema);

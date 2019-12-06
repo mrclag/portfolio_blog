@@ -23,13 +23,22 @@ const PortfolioCardDetail = props => {
           </p>
           <p>
             <Button
-              size="lg"
+              size="md"
               color="primary"
               className="btn"
               href={portfolio.githubUrl}
               target="_blank"
             >
-              View Github
+              View on Github
+            </Button>
+            <Button
+              size="md"
+              color="primary"
+              className="btn"
+              href={portfolio.githubUrl}
+              target="_blank"
+            >
+              View on Github
             </Button>
           </p>
         </ModalBody>

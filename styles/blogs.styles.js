@@ -30,16 +30,11 @@ export const PostMeta = styled.p`
   color: #868e96;
 `;
 
-export const Title = styled.div`
+export const Title = styled.h1`
   text-align: center;
   color: black;
-  font-size: 50px;
   margin: 5vh 5vw;
   font-weight: 700;
-
-  @media only screen and (min-width: 768px) {
-    font-size: 80px;
-  }
 `;
 
 export const BlogPageWrapper = styled.div`
@@ -47,4 +42,19 @@ export const BlogPageWrapper = styled.div`
   padding-top: 10vh;
   background-color: #ecedee;
   min-height: 100vh;
+`;
+
+export const BlogPostWrapper = styled.div`
+  box-shadow: 1px 1px 1px rgba(3, 22, 44, 0.3);
+  width: 50vw;
+  margin: 10px auto;
+  background: white;
+
+  @media screen and (max-width: 800px) {
+    padding: 10px 40px;
+    width: 90vw;
+    img {
+      display: none;
+    }
+  }
 `;

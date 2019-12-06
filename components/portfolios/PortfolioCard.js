@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PortfolioCardDetail from './PortfolioCardDetail';
 import { Card, CardBody, CardText, CardTitle, CardImg } from 'reactstrap';
+import ButtonLink from '../ButtonLink';
 
 const PortfolioCard = props => {
   const [open, setOpen] = useState(false);
@@ -35,8 +36,8 @@ const PortfolioCard = props => {
             className="portfolio-card-text"
             style={{ minHeight: '5vw' }}
           >
-            {portfolio.blurb}
-          </CardText>
+            {portfolio.blurb}{' '}
+          </CardText>{' '}
           <div className="readMore">{children}</div>
         </CardBody>
       </Card>

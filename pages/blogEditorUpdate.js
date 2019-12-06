@@ -36,6 +36,7 @@ class BlogEditorUpdate extends Component {
     const updatedBlog = {};
     updatedBlog.title = heading.title;
     updatedBlog.subTitle = heading.subtitle;
+    updatedBlog.imgLink = heading.imgUrl;
     updatedBlog.story = story;
 
     this.setState({

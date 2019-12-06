@@ -1,7 +1,7 @@
 import React from 'react';
 import Typed from 'react-typed';
 import BaseLayout from '../components/layouts/BaseLayout';
-import SocialIcon from '../components/SocialIcon';
+import ButtonLink from '../components/ButtonLink';
 import {
   Background,
   Overlay,
@@ -9,7 +9,8 @@ import {
   BackgroundImage,
   ProfileImage,
   Bio,
-  NameTitle
+  NameTitle,
+  SocialLinks
 } from '../styles/index.styles';
 
 const Index = props => {
@@ -31,10 +32,22 @@ const Index = props => {
               <br />
               <br />
               Currently specialize in React web development, but love learning
-              and building new things with new tools. Looking for a position
-              starting in Spring 2020.
+              and building new things with new tools.
+              <br />
+              <br />
+              Looking for a full-time position starting in Spring 2020.
             </Bio>
-            <SocialIcon />
+            <SocialLinks>
+              <ButtonLink link="https://www.github.com/mrclag" icon="github" />
+              <ButtonLink
+                link="https://www.instagram.com/mrclagett"
+                icon="instagram"
+              />
+              <ButtonLink
+                link="https://www.linkedin.com/in/matthewclagett"
+                icon="linkedin"
+              />
+            </SocialLinks>
           </MainSection>
         </BaseLayout>
       </Background>

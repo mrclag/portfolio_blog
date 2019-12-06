@@ -75,14 +75,21 @@ export default class SlateEditor extends React.Component {
     const { value } = this.state;
     const firstBlock = value.document.getBlocks().get(0);
     const secondBlock = value.document.getBlocks().get(1);
+    const thirdBlock = value.document.getBlocks().get(2);
 
     const title = firstBlock && firstBlock.text ? firstBlock.text : 'No Title';
     const subtitle =
       secondBlock && secondBlock.text ? secondBlock.text : 'No SubTitle';
+    const imgUrl =
+      thirdBlock && thirdBlock.type == 'block-quote'
+        ? thirdBlock.text
+        : 'https://via.placeholder.com/180';
+    console.log(imgUrl);
 
     return {
       title,
-      subtitle
+      subtitle,
+      imgUrl
     };
   }
 
