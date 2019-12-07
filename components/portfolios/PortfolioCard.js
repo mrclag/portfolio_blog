@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import PortfolioCardDetail from './PortfolioCardDetail';
-import { Card, CardBody, CardText, CardTitle, CardImg } from 'reactstrap';
+import { Card } from '../../styles/portfolios.styles';
 import ButtonLink from '../ButtonLink';
 
 import Modal from './modal';
@@ -15,48 +14,38 @@ const PortfolioCard = props => {
   return (
     <>
       <Modal isOpen={isModalOpen} toggle={toggleModal}>
-        <img src={portfolio.imageUrl} style={{ width: '100%' }} alt="" />
+        <img
+          src={portfolio.imageUrl}
+          style={{ width: '100%', height: '25vw', objectFit: 'cover' }}
+          alt=""
+        />
         <h1 style={{ margin: '10px 0px' }}>
           <b>{portfolio.title}</b>
         </h1>
         <p>
           <b>Description: </b>
+          <br />
           {portfolio.description}
         </p>
-        <ButtonLink link={portfolio.githubUrl} icon="github" />
-        <ButtonLink link="https://github.com/mrclag" icon="home" />
+        <p>
+          <b>Tech: </b>
+          <br />
+          {portfolio.techUsed}
+        </p>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <ButtonLink link={portfolio.githubUrl} icon="github" />
+          <ButtonLink link="https://github.com/mrclag" icon="home" />
+        </div>
         <button onClick={() => toggleModal(false)}>Close</button>
       </Modal>
       <span onClick={() => toggleModal(!isModalOpen)}>
-        <PortfolioCardDetail
-          toggle={toggle}
-          portfolio={portfolio}
-          isOpen={open}
-        />
-        <Card className="portfolio-card">
-          <CardImg
-            style={{
-              width: '100%',
-              height: '15vw',
-              objectFit: 'cover'
-            }}
-            src={portfolio.imageUrl}
-            alt="Card image"
-            className="portfolio-card-img"
-          />
-
-          <CardBody>
-            <CardTitle className="portfolio-card-title">
-              {portfolio.title}
-            </CardTitle>
-            <CardText
-              className="portfolio-card-text"
-              style={{ minHeight: '5vw' }}
-            >
-              {portfolio.blurb}{' '}
-            </CardText>{' '}
-            <div className="readMore">{children}</div>
-          </CardBody>
+        <Card>
+          <img src={portfolio.imageUrl} />
+          <div className="card-body">
+            <h2>{portfolio.title}</h2>
+            <p>{portfolio.blurb}</p>
+            {children}
+          </div>
         </Card>
       </span>
     </>

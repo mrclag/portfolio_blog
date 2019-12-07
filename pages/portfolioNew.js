@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import PorfolioCreateForm from '../components/portfolios/PortfolioCreateForm';
 import withAuth from '../components/hoc/withAuth';
-import { Row, Col, Container } from 'reactstrap';
 import { Router } from '../routes';
 
 import { createPortfolio } from '../actions/index';
@@ -40,17 +39,11 @@ const PortfolioNew = props => {
   return (
     <BaseLayout {...props.auth}>
       <BaseStyles>
-        <Container>
-          <Row>
-            <Col md="6">
-              <PorfolioCreateForm
-                initialValues={INITIAL_VALUES}
-                error={error}
-                onSubmit={savePortfolio}
-              />
-            </Col>
-          </Row>
-        </Container>
+        <PorfolioCreateForm
+          initialValues={INITIAL_VALUES}
+          error={error}
+          onSubmit={savePortfolio}
+        />
       </BaseStyles>
     </BaseLayout>
   );

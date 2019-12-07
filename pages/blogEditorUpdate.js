@@ -3,7 +3,6 @@ import BaseLayout from '../components/layouts/BaseLayout';
 import withAuth from '../components/hoc/withAuth';
 import SlateEditor from '../components/slate-editor/Editor';
 import { toast } from 'react-toastify';
-import { Container } from 'reactstrap';
 
 import moment from 'moment';
 import { getBlogById, updateBlog } from '../actions';
@@ -62,13 +61,11 @@ class BlogEditorUpdate extends Component {
     return (
       <BaseLayout {...this.props.auth}>
         <BlogDetailWrapper>
-          <Container>
-            <SlateEditor
-              initialValue={blog.story}
-              isLoading={isSaving}
-              save={this.updateBlog}
-            />
-          </Container>
+          <SlateEditor
+            initialValue={blog.story}
+            isLoading={isSaving}
+            save={this.updateBlog}
+          />
         </BlogDetailWrapper>
       </BaseLayout>
     );

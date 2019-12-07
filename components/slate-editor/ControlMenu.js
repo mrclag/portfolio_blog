@@ -1,4 +1,3 @@
-import { Button } from 'reactstrap';
 import {
   ControlMenuWrapper,
   Title,
@@ -10,9 +9,9 @@ const ControlMenu = props => {
     <ControlMenuWrapper>
       <Title>Edit Blog</Title>
       <StatusBox>{props.isLoading ? 'Saving... ' : 'Saved'}</StatusBox>
-      <Button disabled={props.isLoading} onClick={props.save} color="success">
+      <button disabled={props.isLoading} onClick={props.save} color="success">
         Save
-      </Button>
+      </button>
     </ControlMenuWrapper>
   );
 };

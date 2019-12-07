@@ -1,19 +1,15 @@
 import styled from 'styled-components';
-import { Col } from 'reactstrap';
 
 export const SiteHeading = styled.div`
   text-align: center;
   padding: 150px 0 75px;
   color: white;
+  background: teal;
 
   h1 {
     font-size: 50px;
     margin-top: 0;
     font-weight: 700;
-  }
-
-  button {
-    margin: 20px 20px;
   }
 
   @media only screen and (min-width: 768px) {
@@ -44,4 +40,21 @@ export const BlogPageWrapper = styled.div`
   color: black;
   background-color: #ecedee;
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+`;
+
+export const BlogList = styled.div`
+  grid-column: span 6;
+  margin: 0 auto;
+  text-align: center;
+`;
+
+export const Button = styled.button`
+  background-color: white;
+  border-radius: 10%;
+  height: 50px;
+  width: 100px;
+  font-size: 14px;
+  margin: 20px 20px;
 `;

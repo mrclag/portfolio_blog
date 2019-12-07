@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import withAuth from '../components/hoc/withAuth';
 import PortButtonDropdown from '../components/ButtonDropdown';
-import { Container, Row, Col, Button } from 'reactstrap';
 import { Link, Router } from '../routes';
 import { getUserBlogs, updateBlog, deleteBlog } from '../actions';
 import moment from 'moment';
+
+import DropdownMenu from '../components/DropdownMenu';
 
 import {
   SiteHeading,
   UserBlogList,
   BlogStatusCol,
   BlogStatusTitle,
-  BlogPageWrapper
+  BlogPageWrapper,
+  BlogList,
+  Button
 } from '../styles/userBlogs.styles';
 
 class UserBlogs extends Component {
@@ -71,14 +74,12 @@ class UserBlogs extends Component {
     const status = this.createStatus(blog.status);
     return [
       {
-        text: status.view,
-        handlers: {
-          onClick: () => this.changeBlogStatus(status.value, blog._id)
-        }
+        value: status.view,
+        handlers: () => this.changeBlogStatus(status.value, blog._id)
       },
       {
-        text: 'Delete',
-        handlers: { onClick: () => this.deleteBlogWarning(blog._id) }
+        value: 'Delete',
+        handlers: () => this.deleteBlogWarning(blog._id)
       }
     ];
   };
@@ -106,30 +107,30 @@ class UserBlogs extends Component {
     const { published, drafts } = this.separateBlogs(blogs);
     return (
       <BaseLayout {...this.props.auth} headerType={'landing'}>
-        <Container>
-          <SiteHeading>
-            <h1>Blogs</h1>
-            <Link route="/blogs/new">
-              <Button color="primary">Create new blog</Button>
-            </Link>
-            <Link route="/blogs">
-              <Button color="primary">View Blogs</Button>
-            </Link>
-          </SiteHeading>
-        </Container>
+        <SiteHeading>
+          <h1>Blogs</h1>
+          <Link route="/blogs/new">
+            <Button>CREATE</Button>
+          </Link>
+          <Link route="/blogs">
+            <Button>VIEW</Button>
+          </Link>
+        </SiteHeading>
         <BlogPageWrapper>
-          <Container>
-            <Row>
-              <Col md="6" className="mx-auto text-center">
-                <BlogStatusTitle>Published Blogs</BlogStatusTitle>
-                {this.renderBlogs(published)}
-              </Col>
-              <Col md="6" className="mx-auto text-center">
-                <BlogStatusTitle>Draft Blogs</BlogStatusTitle>
-                {this.renderBlogs(drafts)}
-              </Col>
-            </Row>
-          </Container>
+          <DropdownMenu
+            items={[
+              { key: 'o1', value: 'Option 1' },
+              { key: 'o2', value: 'Option 2' }
+            ]}
+          />
+          <BlogList>
+            <BlogStatusTitle>Published Blogs</BlogStatusTitle>
+            {this.renderBlogs(published)}
+          </BlogList>
+          <BlogList>
+            <BlogStatusTitle>Draft Blogs</BlogStatusTitle>
+            {this.renderBlogs(drafts)}
+          </BlogList>
         </BlogPageWrapper>
       </BaseLayout>
     );

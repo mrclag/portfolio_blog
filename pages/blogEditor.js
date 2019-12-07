@@ -4,7 +4,6 @@ import withAuth from '../components/hoc/withAuth';
 import SlateEditor from '../components/slate-editor/Editor';
 import { Router } from '../routes';
 import { toast } from 'react-toastify';
-import { Container } from 'reactstrap';
 
 import { createBlog } from '../actions';
 
@@ -39,9 +38,7 @@ const BlogEditor = props => {
   return (
     <BaseLayout {...props.auth}>
       <BlogDetailWrapper>
-        <Container>
-          <SlateEditor isLoading={isSaving} save={saveBlog} />
-        </Container>
+        <SlateEditor isLoading={isSaving} save={saveBlog} />
       </BlogDetailWrapper>
     </BaseLayout>
   );

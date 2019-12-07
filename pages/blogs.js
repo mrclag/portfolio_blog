@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
-import { Container, Row, Col } from 'reactstrap';
 import { Link } from '../routes';
 import { getBlogs } from '../actions';
 import { shortenText } from '../helpers/utils';

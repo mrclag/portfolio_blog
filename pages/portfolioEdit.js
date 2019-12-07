@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import PorfolioCreateForm from '../components/portfolios/PortfolioCreateForm';
 import withAuth from '../components/hoc/withAuth';
-import { Row, Col, Container } from 'reactstrap';
 import { Router } from '../routes';
 
 import { BaseStyles } from '../styles/baseStyles.styles';
@@ -48,17 +47,11 @@ class PortfolioEdit extends Component {
     return (
       <BaseLayout {...this.props.auth}>
         <BaseStyles>
-          <Container>
-            <Row>
-              <Col md="6">
-                <PorfolioCreateForm
-                  initialValues={portfolio}
-                  error={error}
-                  onSubmit={this.updatePortfolio}
-                />
-              </Col>
-            </Row>
-          </Container>
+          <PorfolioCreateForm
+            initialValues={portfolio}
+            error={error}
+            onSubmit={this.updatePortfolio}
+          />
         </BaseStyles>
       </BaseLayout>
     );

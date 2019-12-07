@@ -1,7 +1,7 @@
 // Render Prop
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Button } from 'reactstrap';
+import { Button } from '../../styles/userBlogs.styles';
 import PortInput from '../form/PortInput';
 
 const validateInputs = values => {

@@ -3,10 +3,13 @@ import BaseLayout from '../components/layouts/BaseLayout';
 import { getPortfolios, deletePortfolio } from '../actions/index';
 import { Router } from '../routes';
 import PortfolioCard from '../components/portfolios/PortfolioCard';
-
-import { Col, Row, Button } from 'reactstrap';
 import { BaseStyles } from '../styles/baseStyles.styles';
-import { PortfolioPageWrapper, Title } from '../styles/portfolios.styles';
+import {
+  PortfolioPageWrapper,
+  Title,
+  ProjectsContainer,
+  CardSub
+} from '../styles/portfolios.styles';
 
 // turn this into a functional component
 class Portfolios extends Component {
@@ -50,26 +53,24 @@ class Portfolios extends Component {
 
     return portfolios.map((portfolio, i) => {
       return (
-        <Col md="4" key={i}>
-          <PortfolioCard portfolio={portfolio}>
-            {isAuthenticated && isSiteOwner && (
-              <React.Fragment>
-                <Button
-                  onClick={e => this.navigateToEdit(portfolio._id, e)}
-                  color="warning"
-                >
-                  Edit
-                </Button>{' '}
-                <Button
-                  onClick={e => this.displayDeleteWarning(portfolio._id, e)}
-                  color="danger"
-                >
-                  Delete
-                </Button>
-              </React.Fragment>
-            )}
-          </PortfolioCard>
-        </Col>
+        <PortfolioCard portfolio={portfolio} key={i}>
+          {isAuthenticated && isSiteOwner && (
+            <React.Fragment>
+              <button
+                onClick={e => this.navigateToEdit(portfolio._id, e)}
+                color="warning"
+              >
+                Edit
+              </button>{' '}
+              <button
+                onClick={e => this.displayDeleteWarning(portfolio._id, e)}
+                color="danger"
+              >
+                Delete
+              </button>
+            </React.Fragment>
+          )}
+        </PortfolioCard>
       );
     });
   }
@@ -81,14 +82,16 @@ class Portfolios extends Component {
         <PortfolioPageWrapper>
           <Title>PROJECTS</Title>
           {isAuthenticated && isSiteOwner && (
-            <Button
+            <button
               onClick={() => Router.pushRoute('/portfolios/new')}
               color="success"
             >
               Add Project
-            </Button>
+            </button>
           )}
-          <Row>{this.renderPortfolios(portfolios)}</Row>
+          <ProjectsContainer>
+            <CardSub>{this.renderPortfolios(portfolios)}</CardSub>
+          </ProjectsContainer>
         </PortfolioPageWrapper>
       </BaseLayout>
     );

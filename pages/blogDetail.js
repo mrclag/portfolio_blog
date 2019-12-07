@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import { getBlogBySlug } from '../actions';
-import { Row, Col, Container } from 'reactstrap';
 
 import { BlogDetailWrapper, BlogArticle } from '../styles/blogDetail.styles';
 

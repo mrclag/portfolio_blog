@@ -71,8 +71,7 @@ const modalPoses = {
 const Modal = styled(posed.div(modalPoses))`
   position: fixed;
   background: white;
-  width: 80%;
-  text-align: center;
+  width: 50%;
   height: auto;
   top: 50%;
   left: 50%;
@@ -80,6 +79,9 @@ const Modal = styled(posed.div(modalPoses))`
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 2px 4px 0 rgba(50, 50, 93, 0.1);
+  @media screen and (max-width: 800px) {
+    width: 90%;
+  }
 `;
 
 export default function({ isOpen, toggle, children }) {
