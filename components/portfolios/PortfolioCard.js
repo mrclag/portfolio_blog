@@ -8,7 +8,7 @@ import {
 } from '../../styles/portfolios.styles';
 import ButtonLink from '../ButtonLink';
 
-import Modal from './modal';
+import Modal from './Modal';
 
 const PortfolioCard = props => {
   const [open, setOpen] = useState(false);
