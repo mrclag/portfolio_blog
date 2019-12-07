@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Card } from '../../styles/portfolios.styles';
+import {
+  Card,
+  ModalImage,
+  ModalTitle,
+  ModalDescription,
+  ModalButtons
+} from '../../styles/portfolios.styles';
 import ButtonLink from '../ButtonLink';
 
 import Modal from './modal';
@@ -14,29 +20,30 @@ const PortfolioCard = props => {
   return (
     <>
       <Modal isOpen={isModalOpen} toggle={toggleModal}>
-        <img
-          src={portfolio.imageUrl}
-          style={{ width: '100%', height: '25vw', objectFit: 'cover' }}
-          alt=""
-        />
-        <h1 style={{ margin: '10px 0px' }}>
-          <b>{portfolio.title}</b>
-        </h1>
-        <p>
-          <b>Description: </b>
-          <br />
+        <ModalImage src={portfolio.imageUrl} alt="modal-image" />
+        <ModalDescription>
+          <ModalTitle>{portfolio.title}</ModalTitle>
+          <hr />
           {portfolio.description}
-        </p>
-        <p>
-          <b>Tech: </b>
-          <br />
-          {portfolio.techUsed}
-        </p>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <ButtonLink link={portfolio.githubUrl} icon="github" />
-          <ButtonLink link="https://github.com/mrclag" icon="home" />
-        </div>
-        <button onClick={() => toggleModal(false)}>Close</button>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginTop: '20px'
+            }}
+          >
+            <ModalButtons>
+              <ButtonLink link={portfolio.githubUrl} icon="github" />
+              <ButtonLink link="https://github.com/mrclag" icon="home" />
+            </ModalButtons>
+            <i
+              class="fa fa-times fa-2x"
+              aria-hidden="true"
+              style={{ cursor: 'pointer', paddingTop: '25px' }}
+              onClick={() => toggleModal(false)}
+            ></i>
+          </div>
+        </ModalDescription>
       </Modal>
       <span onClick={() => toggleModal(!isModalOpen)}>
         <Card>

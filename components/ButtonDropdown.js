@@ -6,12 +6,10 @@ import {
   DropdownItem
 } from 'reactstrap';
 
-const PortButtonDropdown = props => {
+const PortButtonDropdown = ({ items }) => {
   const [dropdownOpen, setOpen] = useState(false);
 
   const toggle = () => setOpen(!dropdownOpen);
-
-  const { items } = props;
 
   const renderMenu = items => {
     return (

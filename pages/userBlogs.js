@@ -6,8 +6,6 @@ import { Link, Router } from '../routes';
 import { getUserBlogs, updateBlog, deleteBlog } from '../actions';
 import moment from 'moment';
 
-import DropdownMenu from '../components/DropdownMenu';
-
 import {
   SiteHeading,
   UserBlogList,
@@ -74,12 +72,14 @@ class UserBlogs extends Component {
     const status = this.createStatus(blog.status);
     return [
       {
-        value: status.view,
-        handlers: () => this.changeBlogStatus(status.value, blog._id)
+        text: status.view,
+        handlers: {
+          onClick: () => this.changeBlogStatus(status.value, blog._id)
+        }
       },
       {
-        value: 'Delete',
-        handlers: () => this.deleteBlogWarning(blog._id)
+        text: 'Delete',
+        handlers: { onClick: () => this.deleteBlogWarning(blog._id) }
       }
     ];
   };
@@ -117,12 +117,6 @@ class UserBlogs extends Component {
           </Link>
         </SiteHeading>
         <BlogPageWrapper>
-          <DropdownMenu
-            items={[
-              { key: 'o1', value: 'Option 1' },
-              { key: 'o2', value: 'Option 2' }
-            ]}
-          />
           <BlogList>
             <BlogStatusTitle>Published Blogs</BlogStatusTitle>
             {this.renderBlogs(published)}

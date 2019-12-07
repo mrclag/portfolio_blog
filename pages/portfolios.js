@@ -3,7 +3,7 @@ import BaseLayout from '../components/layouts/BaseLayout';
 import { getPortfolios, deletePortfolio } from '../actions/index';
 import { Router } from '../routes';
 import PortfolioCard from '../components/portfolios/PortfolioCard';
-import { BaseStyles } from '../styles/baseStyles.styles';
+import { BaseStyles, Button } from '../styles/baseStyles.styles';
 import {
   PortfolioPageWrapper,
   Title,
@@ -56,18 +56,14 @@ class Portfolios extends Component {
         <PortfolioCard portfolio={portfolio} key={i}>
           {isAuthenticated && isSiteOwner && (
             <React.Fragment>
-              <button
-                onClick={e => this.navigateToEdit(portfolio._id, e)}
-                color="warning"
-              >
+              <Button onClick={e => this.navigateToEdit(portfolio._id, e)}>
                 Edit
-              </button>{' '}
-              <button
+              </Button>{' '}
+              <Button
                 onClick={e => this.displayDeleteWarning(portfolio._id, e)}
-                color="danger"
               >
                 Delete
-              </button>
+              </Button>
             </React.Fragment>
           )}
         </PortfolioCard>
@@ -82,12 +78,13 @@ class Portfolios extends Component {
         <PortfolioPageWrapper>
           <Title>PROJECTS</Title>
           {isAuthenticated && isSiteOwner && (
-            <button
+            <Button
               onClick={() => Router.pushRoute('/portfolios/new')}
               color="success"
+              style={{ alignItems: 'center' }}
             >
               Add Project
-            </button>
+            </Button>
           )}
           <ProjectsContainer>
             <CardSub>{this.renderPortfolios(portfolios)}</CardSub>

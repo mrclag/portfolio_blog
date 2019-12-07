@@ -28,10 +28,10 @@ export const ProjectsContainer = styled.div`
 export const Card = styled.div`
   width: 350px;
   height: 400px;
-  display: grid;
+  color: white;
   margin: 10px;
-  background: #fff;
-  border-radius: 0.6em;
+  background: linear-gradient(45deg, #333333 0%, #375c93 50%);
+  font-size: 14px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25),
@@ -47,16 +47,14 @@ export const Card = styled.div`
 
   img {
     width: 100%;
-    height: 25vh;
+    height: 200px;
     object-fit: cover;
   }
 
   h2 {
-    color: #222;
-    margin-top: -0.2em;
-    line-height: 1.4;
-    font-size: 1.3em;
+    font-size: 20px;
     transition: all ease-in 100ms;
+    text-transform: uppercase;
   }
 
   @media screen and (max-width: 800px) {
@@ -70,3 +68,26 @@ export const CardSub = styled.section`
   flex-wrap: wrap;
   justify-content: space-evenly;
 `;
+
+export const ModalImage = styled.img`
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 3px solid black;
+`;
+
+export const ModalTitle = styled.div`
+  font-size: 24px;
+  font-weight: 700;
+`;
+
+export const ModalDescription = styled.p`
+  margin: 20px;
+`;
+
+export const ModalButtons = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const ModalClose = styled.div``;

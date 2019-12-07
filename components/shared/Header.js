@@ -31,7 +31,7 @@ const Header = props => {
     <div>
       <NavBar style={barAnimation}>
         <FlexContainer>
-          <Brand href="/">Matt Clagett</Brand>
+          <Brand href="/">Matthew Clagett</Brand>
           <NavLinks style={linkAnimation}>
             <NavbarLinks
               currentRoute={router.asPath}

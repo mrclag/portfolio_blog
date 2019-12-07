@@ -16,8 +16,13 @@ const Select = props => {
   };
 
   const getOptions = () => {
-    return props.options.map(o => (
-      <Option key={o.key} option={o} onSelect={onSelect} />
+    return props.options.map((item, index) => (
+      <Option
+        {...item.handlers}
+        key={index}
+        option={item}
+        onSelect={onSelect}
+      />
     ));
   };
 
